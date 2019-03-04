@@ -14,9 +14,11 @@ namespace ConsoleApp1.Esercizio1 {
 				{ "C", -1 }
 			};
 
+
+			var keys = lati.Keys.ToList();
 			//Acquisisco il valore dei lati
-			foreach (var lato in lati) {
-				lati[lato.Key] = AskAndCheckLato(lato.Key);
+			foreach (var lato in keys) {
+				lati[lato] = AskAndCheckLato(lato);
 			}
 
 			//Verifico la somma
@@ -45,9 +47,9 @@ namespace ConsoleApp1.Esercizio1 {
 
 		private bool CheckDiff(KeyValuePair<string, int> lato, Dictionary<string, int> lati) {
 			var latiExtra = lati.Where(x => x.Key != lato.Key);
-			int diff = -1;
+			int diff = 0;
 			foreach (var latoExtra in latiExtra) {
-				diff += latoExtra.Value;
+				diff = latoExtra.Value - diff;				
 			}
 			if (lato.Value > Math.Abs(diff)) {
 				return true;
@@ -59,7 +61,7 @@ namespace ConsoleApp1.Esercizio1 {
 
 		private bool CheckSum(KeyValuePair<string, int> lato, Dictionary<string, int> lati) {
 			var latiExtra = lati.Where(x => x.Key != lato.Key);
-			int somma = -1;
+			int somma = 0;
 			foreach (var latoExtra in latiExtra) {
 				somma += latoExtra.Value;
 			}
