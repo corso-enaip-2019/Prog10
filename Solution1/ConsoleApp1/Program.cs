@@ -9,8 +9,25 @@ namespace ConsoleApp1 {
 	class Program {
 		static void Main(string[] args) {
 
+			//bool continua = true;
+
+			//while (continua) {
+
+			bool triangoloValido = false;
 			Triangolo triangolo = new Triangolo();
-			triangolo.VerificaTriangolo();
+			triangoloValido = triangolo.IsValidFigure(triangolo.Sides);
+			if (triangoloValido) {
+				Console.WriteLine("è un triangolo");
+			}
+			else {
+				Console.WriteLine("non è un triangolo");
+				triangolo.ProposeValidFigure();
+			}
+
+
+			//Console.WriteLine("Vuoi continuare? y/n");
+			//continua = bool.TryParse(Console.ReadLine()
+			//}
 
 			Console.ReadLine();
 		}

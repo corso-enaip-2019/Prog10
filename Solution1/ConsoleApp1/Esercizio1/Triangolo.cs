@@ -5,44 +5,83 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ConsoleApp1.Esercizio1 {
-	class Triangolo {
+	class Triangolo : AFormaGeometrica {
 
-		public void VerificaTriangolo() {
-			Dictionary<string, int> lati = new Dictionary<string, int> {
-				{ "A", -1 },
-				{ "B", -1 },
-				{ "C", -1 }
+		public Triangolo() {
+			Sides = new Dictionary<string, int> {
+				{ "A", 0 },
+				{ "B", 0 },
+				{ "C", 0 }
 			};
 
-
-			var keys = lati.Keys.ToList();
+			var keys = Sides.Keys.ToList();
 			//Acquisisco il valore dei lati
 			foreach (var lato in keys) {
-				lati[lato] = AskAndCheckLato(lato);
+				Sides[lato] = AskAndCheckLato(lato);
 			}
+		}
 
-			//Verifico la somma
+		public bool ProposeValidFigure() {
+			bool triangoloValido = false;			
+			Dictionary<string, int> latiTest = new Dictionary<string, int>(Sides);
+			var keys = Sides.Keys.ToList();
+
+			int iTentativo = 1;
+			for (int i = 1; i <= 10; i++) {
+				foreach (var lato in keys) {
+					///Incremento
+					latiTest[lato] = latiTest[lato] + i;
+					triangoloValido = IsValidFigure(latiTest);
+					Console.WriteLine("Tentativo " + (iTentativo));
+					if (triangoloValido) {
+						///Esco
+						Console.WriteLine("Un triangolo valido simile al tuo potrebbe essere: ");
+						WriteLati(latiTest);
+						return true;
+					}
+					else {
+						/////Ripristino il valore iniziale
+						//Console.WriteLine("Tentativo fallito: ");
+						//WriteLati(latiTest);
+						latiTest[lato] = Sides[lato];
+						iTentativo++;
+					}
+				}
+			}
+			return false;
+		}
+
+		private void WriteLati(Dictionary<string, int> Lati) {
+			foreach (var Lato in Lati) {
+				Console.WriteLine(string.Format("{0}: {1}", Lato.Key, Lato.Value));
+			}
+		}
+
+		public override bool IsValidFigure(Dictionary<string, int> Sides) {		
+
+			//Verifico le somme
 			bool sumOK = true; ;//= (a < b + c) && (b < a + c) && (c < a + b);
-			foreach (var lato in lati) {
+			foreach (var lato in Sides) {
 				if (sumOK) {
-					sumOK = CheckSum(lato, lati);
+					sumOK = CheckSum(lato, Sides);
 				}
 			}
 
-			//Verifico la differenza
+			//Verifico le differenze
 			bool diffOK = true;// = (a > Math.Abs(b - c)) && (b > Math.Abs(a - c)) && (c > Math.Abs(a - b));
-			foreach (var lato in lati) {
+			foreach (var lato in Sides) {
 				if (diffOK) {
-					diffOK = CheckDiff(lato, lati);
+					diffOK = CheckDiff(lato, Sides);
 				}
 			}
 
-			if (sumOK && diffOK) {
-				Console.WriteLine("è un triangolo");
-			}
-			else {
-				Console.WriteLine("non è un triangolo");
-			}
+			//if (sumOK && diffOK) {
+			//	return true;
+			//}
+			//else {
+			//	return false;
+			//}
+			return sumOK && diffOK;
 		}
 
 		private bool CheckDiff(KeyValuePair<string, int> lato, Dictionary<string, int> lati) {
@@ -84,7 +123,7 @@ namespace ConsoleApp1.Esercizio1 {
 
 			while (valore < 0) {
 				try {
-					Console.Write("Inserisci lato " + nomeLato + ": ");
+					Console.Write(string.Format("{0} {1} {2} ", "Inserisci lato", nomeLato, ":"));
 					conversionOK = int.TryParse(Console.ReadLine(), out valore);
 					if (!conversionOK) {
 						Console.WriteLine("Il valore inserito non è valido!");
@@ -93,7 +132,7 @@ namespace ConsoleApp1.Esercizio1 {
 						Console.WriteLine("Il valore deve essere positivo.");
 					}
 				}
-				catch (Exception ex) {
+				catch /*(Exception ex)*/ {
 					Console.WriteLine("Errore imprevisto!");
 					valore = -1;
 				}
