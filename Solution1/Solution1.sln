@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{C600B925-1D8D-436F-8DC0-9DFDDBD32B03}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brackets", "Brackets\Brackets.csproj", "{56762A5D-D62B-4ECA-8535-038F9DE884DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C600B925-1D8D-436F-8DC0-9DFDDBD32B03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C600B925-1D8D-436F-8DC0-9DFDDBD32B03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C600B925-1D8D-436F-8DC0-9DFDDBD32B03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56762A5D-D62B-4ECA-8535-038F9DE884DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56762A5D-D62B-4ECA-8535-038F9DE884DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56762A5D-D62B-4ECA-8535-038F9DE884DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56762A5D-D62B-4ECA-8535-038F9DE884DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

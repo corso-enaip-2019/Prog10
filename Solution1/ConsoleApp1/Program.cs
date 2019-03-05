@@ -1,9 +1,9 @@
-﻿using ConsoleApp1.Esercizio1;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ConsoleApp1.Esercizio1.Entity;
 
 namespace ConsoleApp1 {
 	class Program {

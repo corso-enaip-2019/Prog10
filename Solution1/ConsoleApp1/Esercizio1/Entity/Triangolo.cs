@@ -4,33 +4,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1.Esercizio1 {
+namespace ConsoleApp1.Esercizio1.Entity {
 	class Triangolo : AFormaGeometrica {
 
 		public Triangolo() {
-			Sides = new Dictionary<string, int> {
-				{ "A", 0 },
-				{ "B", 0 },
-				{ "C", 0 }
-			};
-
-			var keys = Sides.Keys.ToList();
+			Sides = new List<Lato>();
+			Sides.Add(new Lato ("A"));
+			Sides.Add(new Lato ("B"));
+			Sides.Add(new Lato ("C"));
+						
 			//Acquisisco il valore dei lati
-			foreach (var lato in keys) {
-				Sides[lato] = AskAndCheckLato(lato);
+			foreach (var lato in Sides) {
+				lato.Size = AskAndCheckLato(lato.IDLato);
 			}
 		}
 
 		public bool ProposeValidFigure() {
-			bool triangoloValido = false;			
-			Dictionary<string, int> latiTest = new Dictionary<string, int>(Sides);
-			var keys = Sides.Keys.ToList();
-
+			bool triangoloValido = false;
+			List<Lato> latiTest = new List<Lato>(Sides);
+			
 			int iTentativo = 1;
 			for (int i = 1; i <= 10; i++) {
-				foreach (var lato in keys) {
+				foreach (var lato in latiTest) {
+					int orgLato = lato.Size;
 					///Incremento
-					latiTest[lato] = latiTest[lato] + i;
+					lato.Size = lato.Size + i;
 					triangoloValido = IsValidFigure(latiTest);
 					Console.WriteLine("Tentativo " + (iTentativo));
 					if (triangoloValido) {
@@ -40,10 +38,10 @@ namespace ConsoleApp1.Esercizio1 {
 						return true;
 					}
 					else {
-						/////Ripristino il valore iniziale
+						///Ripristino il valore iniziale
 						//Console.WriteLine("Tentativo fallito: ");
 						//WriteLati(latiTest);
-						latiTest[lato] = Sides[lato];
+						lato.Size = orgLato;						
 						iTentativo++;
 					}
 				}
@@ -51,13 +49,13 @@ namespace ConsoleApp1.Esercizio1 {
 			return false;
 		}
 
-		private void WriteLati(Dictionary<string, int> Lati) {
+		private void WriteLati(List<Lato> Lati) {
 			foreach (var Lato in Lati) {
-				Console.WriteLine(string.Format("{0}: {1}", Lato.Key, Lato.Value));
+				Console.WriteLine(string.Format("{0}: {1}", Lato.IDLato, Lato.Size));
 			}
 		}
 
-		public override bool IsValidFigure(Dictionary<string, int> Sides) {		
+		public override bool IsValidFigure(List<Lato> Sides) {		
 
 			//Verifico le somme
 			bool sumOK = true; ;//= (a < b + c) && (b < a + c) && (c < a + b);
@@ -84,13 +82,13 @@ namespace ConsoleApp1.Esercizio1 {
 			return sumOK && diffOK;
 		}
 
-		private bool CheckDiff(KeyValuePair<string, int> lato, Dictionary<string, int> lati) {
-			var latiExtra = lati.Where(x => x.Key != lato.Key);
+		private bool CheckDiff(Lato lato, List<Lato> lati) {
+			var latiExtra = lati.Where(x => x.IDLato != lato.IDLato);
 			int diff = 0;
 			foreach (var latoExtra in latiExtra) {
-				diff = latoExtra.Value - diff;				
+				diff = latoExtra.Size - diff;				
 			}
-			if (lato.Value > Math.Abs(diff)) {
+			if (lato.Size > Math.Abs(diff)) {
 				return true;
 			}
 			else {
@@ -98,13 +96,13 @@ namespace ConsoleApp1.Esercizio1 {
 			}
 		}
 
-		private bool CheckSum(KeyValuePair<string, int> lato, Dictionary<string, int> lati) {
-			var latiExtra = lati.Where(x => x.Key != lato.Key);
+		private bool CheckSum(Lato lato, List<Lato> lati) {
+			var latiExtra = lati.Where(x => x.IDLato != lato.IDLato);
 			int somma = 0;
 			foreach (var latoExtra in latiExtra) {
-				somma += latoExtra.Value;
+				somma += latoExtra.Size;
 			}
-			if (lato.Value < somma) {
+			if (lato.Size < somma) {
 				return true;
 			}
 			else {

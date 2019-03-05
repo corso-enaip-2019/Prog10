@@ -1,0 +1,7 @@
+C:\Users\triprog-10\source\repos\Prog10\Solution1\Brackets\bin\Debug\Brackets.exe.config
+C:\Users\triprog-10\source\repos\Prog10\Solution1\Brackets\bin\Debug\Brackets.exe
+C:\Users\triprog-10\source\repos\Prog10\Solution1\Brackets\bin\Debug\Brackets.pdb
+C:\Users\triprog-10\source\repos\Prog10\Solution1\Brackets\obj\Debug\Brackets.csprojAssemblyReference.cache
+C:\Users\triprog-10\source\repos\Prog10\Solution1\Brackets\obj\Debug\Brackets.csproj.CoreCompileInputs.cache
+C:\Users\triprog-10\source\repos\Prog10\Solution1\Brackets\obj\Debug\Brackets.exe
+C:\Users\triprog-10\source\repos\Prog10\Solution1\Brackets\obj\Debug\Brackets.pdb
