@@ -28,7 +28,22 @@ namespace Brackets {
 
 			Console.ReadLine();
 		}
-		
+
+		static Dictionary<char, char> brakets = new Dictionary<char, char>() {
+			{'(', ')' },
+			{'[', ']' },
+			{'{', '}' }
+		};
+
+		static char MatchingBracket(char c) {
+			foreach(var item in brakets) {
+				if (item.Value == c) {
+					return item.Key;
+				}
+			}
+			return char.MinValue;
+		}
+
 		/// <summary>
 		/// Verifica se il testo passato contiente un numero coerente di parentesi di apertura e chiusura "(", "[", "{"
 		/// </summary>
@@ -36,52 +51,24 @@ namespace Brackets {
 		/// <returns></returns>
 		static bool CheckBrackets(string text) {
 			try {
-
-				List<char> validChars = new List<char>() { '(', ')', '[', ']', '{', '}' };
-
-				/////Controllo parità
-				//if (text.Length % 2 != 0) {
-				//	return false;
-				//}
-
 				Stack<char> openBrackets = new Stack<char>();
 
 				foreach (char c in text.ToCharArray()) {
-					if (c == '(' || c == '[' || c == '{') {
+
+					if (brakets.ContainsKey(c)) {
 						openBrackets.Push(c);
 					}
-					else if (c == ')' || c == ']' || c == '}') {
-						char lastChar = openBrackets.Peek();
-						if (c == ')' && lastChar == '(') {
-							openBrackets.Pop();
-						}
-						else if (c == ']' && lastChar == '[') {
-							openBrackets.Pop();
-						}
-						else if (c == '}' && lastChar == '{') {
-							openBrackets.Pop();
-						}
-						else {
-							return false;
-						}
-					}
-					else {
-						///Il carattere non è un brackets
-						//return false;
+					else if (brakets.ContainsValue(c) 
+						&& openBrackets.Peek() == MatchingBracket(c)) {
+						openBrackets.Pop();
 					}
 				}
 
-				if (openBrackets.Count() == 0) {
-					return true;
-				}
+				return openBrackets.Count() == 0;
 			}
 			catch (Exception) {
-
 				return false;
-				//throw;
 			}
-
-			return false;
 		}		
 	}
 }
