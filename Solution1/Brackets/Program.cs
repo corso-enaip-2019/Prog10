@@ -41,7 +41,7 @@ namespace Brackets {
 					return item.Key;
 				}
 			}
-			return char.MinValue;
+			return c;
 		}
 
 		/// <summary>
@@ -62,6 +62,9 @@ namespace Brackets {
 						&& openBrackets.Peek() == MatchingBracket(c)) {
 						openBrackets.Pop();
 					}
+					//else {
+					//	///Non è un brackets
+					//}
 				}
 
 				return openBrackets.Count() == 0;
