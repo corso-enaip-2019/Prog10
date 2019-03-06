@@ -1,0 +1,7 @@
+C:\Users\triprog-10\source\repos\Prog10\Solution1\ListaStudenti\bin\Debug\ListaStudenti.exe.config
+C:\Users\triprog-10\source\repos\Prog10\Solution1\ListaStudenti\bin\Debug\ListaStudenti.exe
+C:\Users\triprog-10\source\repos\Prog10\Solution1\ListaStudenti\bin\Debug\ListaStudenti.pdb
+C:\Users\triprog-10\source\repos\Prog10\Solution1\ListaStudenti\obj\Debug\ListaStudenti.csprojAssemblyReference.cache
+C:\Users\triprog-10\source\repos\Prog10\Solution1\ListaStudenti\obj\Debug\ListaStudenti.csproj.CoreCompileInputs.cache
+C:\Users\triprog-10\source\repos\Prog10\Solution1\ListaStudenti\obj\Debug\ListaStudenti.exe
+C:\Users\triprog-10\source\repos\Prog10\Solution1\ListaStudenti\obj\Debug\ListaStudenti.pdb
