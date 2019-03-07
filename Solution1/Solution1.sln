@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brackets", "Brackets\Bracke
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListaStudenti", "ListaStudenti\ListaStudenti.csproj", "{6C7D7754-6A46-4E78-9392-3C555453F385}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassIntroduction", "ClassIntroduction\ClassIntroduction.csproj", "{A8D57209-2F9D-4461-9226-2D4715770298}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{6C7D7754-6A46-4E78-9392-3C555453F385}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C7D7754-6A46-4E78-9392-3C555453F385}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C7D7754-6A46-4E78-9392-3C555453F385}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8D57209-2F9D-4461-9226-2D4715770298}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8D57209-2F9D-4461-9226-2D4715770298}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8D57209-2F9D-4461-9226-2D4715770298}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8D57209-2F9D-4461-9226-2D4715770298}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
