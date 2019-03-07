@@ -22,6 +22,7 @@ namespace ListaStudenti {
 
 			while (!esci) {
 				Console.WriteLine($"{EXIT} = esci; {STAMPA} = stampa; {INSERT} = inserisci; {DELETE} = cancella; {FIND} = trova");
+				Console.Write("scelta: ");
 				switch (Console.ReadLine()) {
 					default:
 						//non faccio nulla
@@ -55,7 +56,7 @@ namespace ListaStudenti {
 		}
 
 		private static string getNomeStudente() {
-			Console.Write("Nome dello studente da trovare: ");
+			Console.Write("Nome dello studente: ");
 			return Console.ReadLine();
 		}
 
@@ -84,18 +85,39 @@ namespace ListaStudenti {
 			}
 		}
 
+		private static int getClasseInteresse(string text) {
+			Console.Write($"{text} ");
+			int intClasse = 0;
+			if (int.TryParse(Console.ReadLine(), out intClasse)) {
+				if (intClasse > 0 && intClasse < 6) {
+					return intClasse;
+				}
+				else {
+					Console.WriteLine("Classe non valida, immettere un numero tra 1 e 5.");
+					return getClasseInteresse(text);
+				}
+			}
+			else {
+				Console.WriteLine("Numero non valido, immettere un numero tra 1 e 5.");
+				return getClasseInteresse(text);
+			}
+		}
+
 		private static void DeleteStudent() {
 			string nomeStudente = getNomeStudente();
 			List<Classe> classi = findStudent(nomeStudente);
+			int classe = 0;
 			if (classi.Count == 1) {
+				classe = classi.First().NumeroClasse;
 				classi.First().DeleteStudent(nomeStudente);
 			}
 			else {
 				printListClassiStudente(classi);
-				Console.Write("Da quale classe lo vuoi cancellare? ");
-				string classeElimina = Console.ReadLine();
-				///TODO COMPLETARE
+				classe = getClasseInteresse("Da quale classe lo vuoi cancellare?");
+				scuola.DeleteStudenteFromClasse(classe, nomeStudente);
 			}
+			Console.WriteLine($"Studente {nomeStudente} eliminato dalla classe {classe}");
+			Console.ReadLine();
 		}
 
 		static private void AddStudent() {
