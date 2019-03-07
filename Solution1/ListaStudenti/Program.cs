@@ -29,6 +29,7 @@ namespace ListaStudenti {
 						break;
 					case EXIT:
 						esci = true;
+						Environment.Exit(0);
 						break;
 					case STAMPA:
 						PrintClasses();
