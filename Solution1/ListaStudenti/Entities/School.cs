@@ -38,12 +38,20 @@ namespace ListaStudenti {
 			return c.DeleteStudent(nomeStudente);
 		}
 
-		public string PrintClasses() {
+		public string PrintClasses(int classeStampa) {
 			string testoStampa = "";
-			foreach (var classe in ClassiDisponibili) {
-				if (classe.CountStudenti > 0) {
-					testoStampa += classe.PrintStudentList();
-					testoStampa += Environment.NewLine;
+			if (classeStampa == 0) {
+				foreach (var classe in ClassiDisponibili) {
+					if (classe.CountStudenti > 0) {
+						testoStampa += classe.PrintStudentList();
+						testoStampa += Environment.NewLine;
+					}
+				}
+			}
+			else {
+				var cls = ClassiDisponibili.FirstOrDefault(x => x.NumeroClasse == classeStampa && x.CountStudenti > 0);
+				if (cls != null) {
+					testoStampa += cls.PrintStudentList();
 				}
 			}
 			return testoStampa;

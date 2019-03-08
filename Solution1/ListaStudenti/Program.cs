@@ -45,15 +45,19 @@ namespace ListaStudenti {
 						Environment.Exit(0);
 						break;
 					case STAMPA:
+						countInsertErrors = 0;
 						PrintClasses();
 						break;
 					case INSERT:
+						countInsertErrors = 0;
 						AddStudent();
 						break;
 					case DELETE:
+						countInsertErrors = 0;
 						DeleteStudent();
 						break;
 					case FIND:
+						countInsertErrors = 0;
 						FindStudent();
 						break;
 				}
@@ -63,7 +67,21 @@ namespace ListaStudenti {
 		}
 
 		private static void PrintClasses() {
-			Console.WriteLine(scuola.PrintClasses());
+			Console.Write("Vuoi stampare una classe particolare? (0 per tutte) ");
+			string classe = Console.ReadLine();
+			int clsStampa = 0;
+			if (int.TryParse(classe, out clsStampa)) {
+				if (clsStampa < 0 || clsStampa > 5) {
+					Console.WriteLine("Il valore inserito non è valido");
+				}
+				else {
+					Console.WriteLine(scuola.PrintClasses(clsStampa));
+				}
+			}
+			else {
+				Console.WriteLine("Il valore inserito non è valido");
+			}
+
 			Console.ReadLine();
 		}
 
