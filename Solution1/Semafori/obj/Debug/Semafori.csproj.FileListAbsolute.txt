@@ -1,0 +1,7 @@
+C:\Users\triprog-10\source\repos\Prog10\Solution1\Semafori\obj\Debug\Semafori.csprojAssemblyReference.cache
+C:\Users\triprog-10\source\repos\Prog10\Solution1\Semafori\obj\Debug\Semafori.csproj.CoreCompileInputs.cache
+C:\Users\triprog-10\source\repos\Prog10\Solution1\Semafori\bin\Debug\Semafori.exe.config
+C:\Users\triprog-10\source\repos\Prog10\Solution1\Semafori\bin\Debug\Semafori.exe
+C:\Users\triprog-10\source\repos\Prog10\Solution1\Semafori\bin\Debug\Semafori.pdb
+C:\Users\triprog-10\source\repos\Prog10\Solution1\Semafori\obj\Debug\Semafori.exe
+C:\Users\triprog-10\source\repos\Prog10\Solution1\Semafori\obj\Debug\Semafori.pdb

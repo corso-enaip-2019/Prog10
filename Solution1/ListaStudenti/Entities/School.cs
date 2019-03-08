@@ -35,7 +35,7 @@ namespace ListaStudenti {
 
 		public bool DeleteStudenteFromClasse(int classe, string nomeStudente) {
 			Classroom c = FindClasse(classe);
-			return c.DeleteStudent(nomeStudente);
+			return c.RemoveStudent(nomeStudente);
 		}
 
 		public string PrintClasses(int classeStampa) {

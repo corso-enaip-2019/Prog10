@@ -14,7 +14,7 @@ namespace ListaStudenti {
 			ClassiFrequentate = new List<Classroom>();
 		}
 
-		public bool AddToClass(Classroom classeAppartenenza) {
+		public bool RegisterToClass(Classroom classeAppartenenza) {
 			if (!ClassiFrequentate.Contains(classeAppartenenza)) {
 				ClassiFrequentate.Add(classeAppartenenza);
 				return true;
@@ -22,7 +22,7 @@ namespace ListaStudenti {
 			return false;
 		}
 
-		internal bool RemoveFromClass(Classroom classe) {
+		internal bool LeaveClass(Classroom classe) {
 			if (ClassiFrequentate.Contains(classe)) {
 				ClassiFrequentate.Remove(classe);
 				return true;

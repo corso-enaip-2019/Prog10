@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListaStudenti", "ListaStude
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassIntroduction", "ClassIntroduction\ClassIntroduction.csproj", "{A8D57209-2F9D-4461-9226-2D4715770298}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Semafori", "Semafori\Semafori.csproj", "{3554E385-D8CB-4ED8-9C0A-1CC58695720E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{A8D57209-2F9D-4461-9226-2D4715770298}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8D57209-2F9D-4461-9226-2D4715770298}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8D57209-2F9D-4461-9226-2D4715770298}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3554E385-D8CB-4ED8-9C0A-1CC58695720E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3554E385-D8CB-4ED8-9C0A-1CC58695720E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3554E385-D8CB-4ED8-9C0A-1CC58695720E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3554E385-D8CB-4ED8-9C0A-1CC58695720E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

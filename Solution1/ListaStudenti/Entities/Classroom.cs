@@ -7,22 +7,21 @@ using System.Threading.Tasks;
 namespace ListaStudenti {
 	class Classroom {
 		public int NumeroClasse { get; }
-		private List<Student> ListaStudenti { get; }
+		private List<Student> _listaStudenti = new List<Student>();
 		public School ScuolaAppartenenza { get; private set; }
 
 		public int CountStudenti {
-			get { return ListaStudenti.Count; }
+			get { return _listaStudenti.Count; }
 		}
 
 		public Classroom(int numero) {
 			NumeroClasse = numero;
-			ListaStudenti = new List<Student>();
 		}
 		
 		public bool AddStudent(Student studente) {
-			if (!ListaStudenti.Contains(studente)) {
-				ListaStudenti.Add(studente);
-				studente.AddToClass(this);
+			if (!_listaStudenti.Contains(studente)) {
+				_listaStudenti.Add(studente);
+				studente.RegisterToClass(this);
 
 				return true;
 			}
@@ -34,13 +33,13 @@ namespace ListaStudenti {
 		}
 
 		public Student FindStudente(string nomeStudente) {
-			return ListaStudenti.Find(x => x.Nome == nomeStudente);			
+			return _listaStudenti.Find(x => x.Nome == nomeStudente);			
 		}
 
-		public bool DeleteStudent(string nomeStudente) {
+		public bool RemoveStudent(string nomeStudente) {
 			Student studente = FindStudente(nomeStudente);
-			if (studente.RemoveFromClass(this)) {
-				return ListaStudenti.Remove(studente);
+			if (studente.LeaveClass(this)) {
+				return _listaStudenti.Remove(studente);
 			}
 			return false;
 		}
@@ -49,7 +48,7 @@ namespace ListaStudenti {
 			string testoStampa = "";
 
 			testoStampa += $"--- Studenti della classe {NumeroClasse}: " + Environment.NewLine;
-			foreach (var studente in ListaStudenti) {
+			foreach (var studente in _listaStudenti) {
 				testoStampa += studente;
 				testoStampa += Environment.NewLine;
 			}

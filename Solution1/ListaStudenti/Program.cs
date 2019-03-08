@@ -138,7 +138,7 @@ namespace ListaStudenti {
 			int classe = 0;
 			if (classi.Count == 1) {
 				classe = classi.First().NumeroClasse;
-				classi.First().DeleteStudent(nomeStudente);
+				classi.First().RemoveStudent(nomeStudente);
 			}
 			else {
 				PrintListClassiStudente(classi);
