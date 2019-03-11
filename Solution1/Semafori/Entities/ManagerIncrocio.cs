@@ -20,15 +20,45 @@ namespace Semafori.Entities {
 			Strada stradaB = _strade[1];
 
 			if (stradaA.StreetStatus == Semaforo.VERDE && stradaB.StreetStatus == Semaforo.ROSSO) {
-				if (stradaA.BecomeRed()) {
-					stradaB.BecomeGreen();
+				if (stradaA.SetYellow()) {
+					PrintCurrentStatus();
+
+					if (stradaA.SetRed()) {
+						PrintCurrentStatus();
+
+						if (stradaB.SetYellow()) {
+							PrintCurrentStatus();
+
+							stradaB.SetGreen();
+							PrintCurrentStatus();
+						}
+					}
 				}
 			}
 			else if (stradaA.StreetStatus == Semaforo.ROSSO && stradaB.StreetStatus == Semaforo.VERDE) {
-				if (stradaB.BecomeRed()) {
-					stradaA.BecomeGreen();
+				if (stradaB.SetYellow()) {
+					PrintCurrentStatus();
+
+					if (stradaB.SetRed()) {
+						PrintCurrentStatus();
+
+						if (stradaA.SetYellow()) {
+							PrintCurrentStatus();
+
+							stradaA.SetGreen();
+							PrintCurrentStatus();
+						}
+					}
 				}
 			} 
+		}
+
+		private void PrintCurrentStatus() {
+			foreach (var strada in _strade) {
+				Console.Write($"{strada}    ");
+			}
+			Console.WriteLine();
+			System.Threading.Thread.Sleep(500);
 		}
 
 		//public string PrintStatusIncrocio() {

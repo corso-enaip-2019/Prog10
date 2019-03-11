@@ -17,8 +17,7 @@ namespace Semafori {
 
 				manager.SwitchTraffic();
 				System.Threading.Thread.Sleep(500);
-				Console.WriteLine(Environment.NewLine);				
-
+				//Console.WriteLine();
 			}
 
 						

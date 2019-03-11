@@ -41,42 +41,38 @@ namespace Semafori.Entities {
 			Console.WriteLine($"Strada {NomeStrada}");
 		}
 
-		public bool BecomeRed() {
-			printNomeStrada();
-			foreach (var semaforo in Semafori) {
-				semaforo.BecomeYellow();
-				StreetStatus = Semaforo.GIALLO;
-			}
-			foreach (var semaforo in Semafori) {
-				semaforo.BecomeRed();
-				StreetStatus = Semaforo.ROSSO;
-			}
-			
-			///TODO: gestire eccezioni AIUTO!!!!
-			return true;
-		}
-
-		public bool BecomeGreen() {
-			printNomeStrada();
-			foreach (var semaforo in Semafori) {
-				semaforo.BecomeYellow();
-				StreetStatus = Semaforo.GIALLO;
-			}
+		public bool SetGreen() {
+			//printNomeStrada();
 			foreach (var semaforo in Semafori) {
 				semaforo.BecomeGreen();
 				StreetStatus = Semaforo.VERDE;
 			}
-			
 			///TODO: gestire eccezioni AIUTO!!!!
 			return true;
 		}
 
-		//public string PrintStreetStatus() {
-		//	string strOut = "";
-		//	foreach (var sem in Semafori) {
-		//		strOut += $" - sem.{sem.NomeSemaforo} {sem.CurrentColor}{Environment.NewLine}";
-		//	}
-		//	return strOut;
-		//}
+		public bool SetYellow() {
+			//printNomeStrada();
+			foreach (var semaforo in Semafori) {
+				semaforo.BecomeYellow();
+				StreetStatus = Semaforo.GIALLO;
+			}
+			///TODO: gestire eccezioni AIUTO!!!!
+			return true;
+		}
+
+		public bool SetRed() {
+			//printNomeStrada();
+			foreach (var semaforo in Semafori) {
+				semaforo.BecomeRed();
+				StreetStatus = Semaforo.ROSSO;
+			}			
+			///TODO: gestire eccezioni AIUTO!!!!
+			return true;
+		}
+
+		public override string ToString() {
+			return $"{NomeStrada} - {StreetStatus}";
+		}
 	}
 }

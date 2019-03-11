@@ -38,7 +38,7 @@ namespace Semafori.Entities {
 		}
 
 		void printStatus() {
-			Console.WriteLine($"{NomeSemaforo} : {CurrentColor}");
+			//Console.WriteLine($"{NomeSemaforo} : {CurrentColor}");
 		}
 	}
 }
