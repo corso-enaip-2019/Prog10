@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassIntroduction", "ClassI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Semafori", "Semafori\Semafori.csproj", "{3554E385-D8CB-4ED8-9C0A-1CC58695720E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Poker", "Poker\Poker.csproj", "{A993988D-FC04-4D81-9CE5-75381CB69E9C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{3554E385-D8CB-4ED8-9C0A-1CC58695720E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3554E385-D8CB-4ED8-9C0A-1CC58695720E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3554E385-D8CB-4ED8-9C0A-1CC58695720E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A993988D-FC04-4D81-9CE5-75381CB69E9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A993988D-FC04-4D81-9CE5-75381CB69E9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A993988D-FC04-4D81-9CE5-75381CB69E9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A993988D-FC04-4D81-9CE5-75381CB69E9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

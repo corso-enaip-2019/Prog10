@@ -20,37 +20,33 @@ namespace Semafori.Entities {
 			Strada stradaB = _strade[1];
 
 			if (stradaA.StreetStatus == Semaforo.VERDE && stradaB.StreetStatus == Semaforo.ROSSO) {
-				if (stradaA.SetYellow()) {
+
+				Switch(stradaA, stradaB);
+
+			}
+			else if (stradaA.StreetStatus == Semaforo.ROSSO && stradaB.StreetStatus == Semaforo.VERDE) {
+
+				Switch(stradaB, stradaA);
+				
+			}
+		}
+
+		private void Switch(Strada setRed, Strada setGreen) {
+			if (setRed.SetYellow()) {
+				PrintCurrentStatus();
+
+				if (setRed.SetRed()) {
 					PrintCurrentStatus();
 
-					if (stradaA.SetRed()) {
+					if (setGreen.SetYellow()) {
 						PrintCurrentStatus();
 
-						if (stradaB.SetYellow()) {
-							PrintCurrentStatus();
-
-							stradaB.SetGreen();
-							PrintCurrentStatus();
-						}
+						setGreen.SetGreen();
+						PrintCurrentStatus();
+						System.Threading.Thread.Sleep(1000);
 					}
 				}
 			}
-			else if (stradaA.StreetStatus == Semaforo.ROSSO && stradaB.StreetStatus == Semaforo.VERDE) {
-				if (stradaB.SetYellow()) {
-					PrintCurrentStatus();
-
-					if (stradaB.SetRed()) {
-						PrintCurrentStatus();
-
-						if (stradaA.SetYellow()) {
-							PrintCurrentStatus();
-
-							stradaA.SetGreen();
-							PrintCurrentStatus();
-						}
-					}
-				}
-			} 
 		}
 
 		private void PrintCurrentStatus() {
@@ -60,14 +56,5 @@ namespace Semafori.Entities {
 			Console.WriteLine();
 			System.Threading.Thread.Sleep(500);
 		}
-
-		//public string PrintStatusIncrocio() {
-		//	string statoIncrocio = "";
-		//	foreach (var strada in _strade) {
-		//		statoIncrocio += $"Strada {strada.NomeStrada}{Environment.NewLine}{strada.PrintStreetStatus()}";				
-		//	}
-		//	return statoIncrocio;
-		//}
-
 	}
 }

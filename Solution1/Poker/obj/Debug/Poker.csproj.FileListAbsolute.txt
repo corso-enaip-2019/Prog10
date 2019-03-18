@@ -1,0 +1,7 @@
+C:\Users\triprog-10\source\repos\Prog10\Solution1\Poker\bin\Debug\Poker.exe.config
+C:\Users\triprog-10\source\repos\Prog10\Solution1\Poker\bin\Debug\Poker.exe
+C:\Users\triprog-10\source\repos\Prog10\Solution1\Poker\bin\Debug\Poker.pdb
+C:\Users\triprog-10\source\repos\Prog10\Solution1\Poker\obj\Debug\Poker.csprojAssemblyReference.cache
+C:\Users\triprog-10\source\repos\Prog10\Solution1\Poker\obj\Debug\Poker.csproj.CoreCompileInputs.cache
+C:\Users\triprog-10\source\repos\Prog10\Solution1\Poker\obj\Debug\Poker.exe
+C:\Users\triprog-10\source\repos\Prog10\Solution1\Poker\obj\Debug\Poker.pdb
