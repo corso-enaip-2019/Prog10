@@ -1,0 +1,7 @@
+C:\Users\triprog-10\source\repos\Prog10\Solution1\Geometria\bin\Debug\Geometria.exe.config
+C:\Users\triprog-10\source\repos\Prog10\Solution1\Geometria\bin\Debug\Geometria.exe
+C:\Users\triprog-10\source\repos\Prog10\Solution1\Geometria\bin\Debug\Geometria.pdb
+C:\Users\triprog-10\source\repos\Prog10\Solution1\Geometria\obj\Debug\Geometria.csprojAssemblyReference.cache
+C:\Users\triprog-10\source\repos\Prog10\Solution1\Geometria\obj\Debug\Geometria.csproj.CoreCompileInputs.cache
+C:\Users\triprog-10\source\repos\Prog10\Solution1\Geometria\obj\Debug\Geometria.exe
+C:\Users\triprog-10\source\repos\Prog10\Solution1\Geometria\obj\Debug\Geometria.pdb
