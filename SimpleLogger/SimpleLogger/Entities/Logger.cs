@@ -6,34 +6,34 @@ using System.Threading.Tasks;
 
 namespace SimpleLogger.Entities {
 	public class Logger:ILogger {
-		readonly List<ILogger> _loggers = new List<ILogger>();
+		readonly List<ILogTarget> _writers = new List<ILogTarget>();
 
-		public Logger(params LoggerType[] types) {
-			foreach(var type in types) {
-				switch (type) {
-					case LoggerType.Console:
-						_loggers.Add(new ConsoleLogger());
-						break;
-					case LoggerType.File:
-						_loggers.Add(new FileLogger());
-						break;
-					case LoggerType.DB:
-						_loggers.Add(new DBLogger());
-						break;
-				}
-			}
+		public Logger() {
+
 		}
 
 		public void LogError(string message, Exception ex) {
-			foreach(var log in _loggers) {
-				log.LogError(message, ex);
-			}
+			WriteLog(LogEntry.LogLevel.Error, message, ex);
 		}
 
 		public void LogInfo(string message, Exception ex = null) {
-			foreach (var log in _loggers) {
-				log.LogInfo(message, ex);
+			WriteLog(LogEntry.LogLevel.Info, message, ex);
+		}
+
+		private void WriteLog(LogEntry.LogLevel level, string message, Exception ex = null) {
+			foreach (var log in _writers) {
+				log.WriteLog(new LogEntry(level) {Message = message, Error = ex });
 			}
+		}
+
+		public bool AddTarget(ILogTarget writer) {
+			_writers.Add(writer);
+			return true;
+		}
+
+		public bool RemoveTarget(ILogTarget writer) {
+			_writers.Remove(writer);
+			return true;
 		}
 	}
 }

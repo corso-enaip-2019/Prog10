@@ -10,5 +10,8 @@ namespace SimpleLogger.Entities {
 		void LogInfo(string message, Exception ex = null);
 
 		void LogError(string message, Exception ex);
+
+		bool AddTarget(ILogTarget writer);
+		bool RemoveTarget(ILogTarget writer);
 	}
 }

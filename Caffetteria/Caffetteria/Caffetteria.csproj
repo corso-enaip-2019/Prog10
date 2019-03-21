@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{340086C1-E920-4E85-AFD2-17BD0BD7854F}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SimpleLogger</RootNamespace>
-    <AssemblyName>SimpleLogger</AssemblyName>
+    <ProjectGuid>{00D878B3-DC47-4908-92F9-9188D8F642E1}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Caffetteria</RootNamespace>
+    <AssemblyName>Caffetteria</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,16 +43,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\ConsoleTarget.cs" />
-    <Compile Include="Entities\DBTarget.cs" />
-    <Compile Include="Entities\FileTarget.cs" />
-    <Compile Include="Entities\ILogger.cs" />
-    <Compile Include="Entities\ILogTarget.cs" />
-    <Compile Include="Entities\LogEntry.cs" />
-    <Compile Include="Entities\Logger.cs" />
-    <Compile Include="Entities\LoggerType.cs" />
-    <Compile Include="Entities\MockLogger.cs" />
+    <Compile Include="Entities\Product.cs" />
+    <Compile Include="Entities\IProduct.cs" />
+    <Compile Include="Entities\IIngredient.cs" />
+    <Compile Include="Entities\Ingredient.cs" />
+    <Compile Include="Entities\Menu.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\SimpleLogger\SimpleLogger\SimpleLogger.csproj">
+      <Project>{340086c1-e920-4e85-afd2-17bd0bd7854f}</Project>
+      <Name>SimpleLogger</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
