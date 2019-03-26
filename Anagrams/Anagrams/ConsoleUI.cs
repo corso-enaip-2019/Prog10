@@ -15,7 +15,7 @@ namespace Anagrams {
 		}
 
 		public void WriteMessage(string message) {
-			WriteMessage(message, ConsoleColor.White);
+			WriteMessage(message, ConsoleColor.Gray);
 		}
 
 		public void WriteMessage(string message, ConsoleColor color) {
@@ -29,17 +29,17 @@ namespace Anagrams {
 			List<IGamePlay> _gameModes = LoadAvailableGamePlays();
 
 			while (option != ConsoleKey.Escape) {
+				if (_wordRepository is null) {
+					ManageSettings();
+				}
 				Console.Clear();
 				ShowOptionsMenu(_gameModes);
-				Console.WriteLine("Seleziona una modalità: ");
+				WriteMessage("Seleziona una modalità: ", ConsoleColor.White);
 				option = Console.ReadKey(true).Key;
 
 				switch (option) {
 					default:
 						if (option >= ConsoleKey.F1 && option <= ConsoleKey.F12) {
-							if (_wordRepository is null) {
-								ManageSettings();
-							}
 							int index = option - ConsoleKey.F1;
 							if (index < _gameModes.Count && index >= 0) {
 								IGamePlay game = _gameModes[index];
@@ -51,7 +51,7 @@ namespace Anagrams {
 						}
 						break;
 					case ConsoleKey.Escape:
-						Console.WriteLine("Grazie per aver giocato.");
+						WriteMessage("Grazie per aver giocato.", ConsoleColor.White);
 						break;
 					case ConsoleKey.S:
 						ManageSettings();
@@ -62,7 +62,12 @@ namespace Anagrams {
 			}
 		}
 
-		private void ManageSettings() {
+		private void ManageSettings(string initText = null) {
+			Console.Clear();
+			if (initText != null) {
+				Console.WriteLine(initText);
+			}
+			Console.WriteLine("- IMPOSTAZIONI -");
 			Console.WriteLine("Dizionari disponibili:");
 			Dictionary<ConsoleKey, string> dics = new Dictionary<ConsoleKey, string>();
 			ConsoleKey start = ConsoleKey.NumPad0;
@@ -78,27 +83,31 @@ namespace Anagrams {
 				Console.WriteLine($"Hai selezionato: {_wordRepository.Description}");
 			}
 			else {
-				Console.WriteLine("Il valore selezionato è errato");
-				ManageSettings();
+				ManageSettings("Il valore selezionato è errato");
 			}
 		}
 
 		private void ShowOptionsMenu(List<IGamePlay> _gameModes) {
 			if (_wordRepository != null) {
-				Console.WriteLine($"Modalità corrente - {_wordRepository.Description}");
+				WriteMessage($"Modalità corrente - {_wordRepository.Description}", ConsoleColor.White);
+				WriteMessage("----", ConsoleColor.White);
 			}
-
+			WriteMessage("");
 			Dictionary<ConsoleKey, string> _options = new Dictionary<ConsoleKey, string>();
 			_options.Add(ConsoleKey.Escape, "EXIT");
 			_options.Add(ConsoleKey.S, "SETTINGS");
 
-			ConsoleKey starting = ConsoleKey.F1;
 			foreach (var opt in _options) {
-				Console.WriteLine($"{opt.Key} - {opt.Value}");
+				WriteMessage($"{opt.Key} - {opt.Value}", ConsoleColor.Yellow);
 			}
+
+			WriteMessage("");
+			WriteMessage("-- GAME MODE--", ConsoleColor.DarkRed);
+			ConsoleKey starting = ConsoleKey.F1;
 			foreach (var game in _gameModes) {
-				Console.WriteLine($"{starting++} - {game.Description}");
+				WriteMessage($"{starting++} - {game.Description}");
 			}
+			WriteMessage("");
 		}
 
 		#region Dynamic loading

@@ -21,13 +21,22 @@ namespace Anagrams.Entities.RepoModes {
 
 	abstract class ARepo: IRepository {
 
+		List<string> _dictionary;
+		protected List<string> Dictionary {
+			get {
+				if (_dictionary == null) {
+					_dictionary = LoadDictionary();
+				}
+				return _dictionary;
+			}
+		}
+
 		public IGrouping<string, string> CurrentAnagramPool { get; private set; }		
 
 		public abstract string Description { get; }
 		
 		public List<string> GetAnagrams(string word) {
-			var myDic = LoadDictionary();
-			return GetAnagrams(myDic, word);
+			return GetAnagrams(Dictionary, word);
 		}
 
 		private List<string> GetAnagrams(List<string> dictionary, string word) {
@@ -45,7 +54,7 @@ namespace Anagrams.Entities.RepoModes {
 		}
 
 		public string GetRandomWord() {
-			return GetRandomWordFromPool(GetRandomAnagramPool(LoadDictionary()));
+			return GetRandomWordFromPool(GetRandomAnagramPool(Dictionary));
 		}
 
 		public bool IsAnagram(string word, string anagram) {
