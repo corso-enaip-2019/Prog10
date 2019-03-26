@@ -97,6 +97,21 @@ namespace Anagrams {
 			}
 			WriteMessage("");
 			Dictionary<ConsoleKey, string> _options = new Dictionary<ConsoleKey, string>();
+
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("");
+            Console.WriteLine("   /\\       /\\                                                     /\\      /\\");
+            Console.WriteLine("   \\/      /  \\        /\\        |------------------|     /\\       \\/     /  \\");
+            Console.WriteLine("           \\  /        \\/        |  Welcome to the  |    /  \\             \\  /");
+            Console.WriteLine("            \\/     /\\            |   Anagram Game   |    \\  /              \\/");
+            Console.WriteLine("                   \\/            |------------------|     \\/           /\\");
+            Console.WriteLine("       /\\                                                              \\/");
+            Console.BackgroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("                                                                                ");
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.WriteLine("");
+            Console.ForegroundColor = ConsoleColor.White;
+
 			_options.Add(ConsoleKey.Escape, "EXIT");
 			_options.Add(ConsoleKey.S, "SETTINGS");
 
