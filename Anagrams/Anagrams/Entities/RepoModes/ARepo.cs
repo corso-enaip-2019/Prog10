@@ -58,6 +58,7 @@ namespace Anagrams.Entities.RepoModes {
 		}
 
 		public bool IsAnagram(string word, string anagram) {
+			if (!Dictionary.Contains(anagram)) return false;
 			return word.IsAnagram(anagram);
 		}
 

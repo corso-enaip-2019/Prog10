@@ -6,5 +6,6 @@ namespace Anagrams.Entities {
 		void WriteMessage(string message);
 		void WriteMessage(string message, ConsoleColor color);
 		void Run();
+		void ClearScreen();
 	}
 }

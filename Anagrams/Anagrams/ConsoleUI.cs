@@ -23,6 +23,10 @@ namespace Anagrams {
 			Console.WriteLine(message);
 		}
 
+		public void ClearScreen() {
+			Console.Clear();
+		}
+
 		public void Run() {
 			ConsoleKey option = ConsoleKey.NoName;
 
@@ -47,7 +51,7 @@ namespace Anagrams {
 							}	
 						}
 						else {
-							Console.WriteLine("L'opzione scelta non è valida o non disponibile.");
+							WriteMessage("L'opzione scelta non è valida o non disponibile.", ConsoleColor.Red );
 						}
 						break;
 					case ConsoleKey.Escape:
@@ -57,30 +61,29 @@ namespace Anagrams {
 						ManageSettings();
 						break;
 				}
-
-				Console.ReadKey(true);
 			}
+			Console.ReadKey(true);
 		}
 
 		private void ManageSettings(string initText = null) {
 			Console.Clear();
 			if (initText != null) {
-				Console.WriteLine(initText);
+				WriteMessage(initText);
 			}
-			Console.WriteLine("- IMPOSTAZIONI -");
-			Console.WriteLine("Dizionari disponibili:");
+			WriteMessage("- IMPOSTAZIONI -");
+			WriteMessage("Dizionari disponibili:");
 			Dictionary<ConsoleKey, string> dics = new Dictionary<ConsoleKey, string>();
 			ConsoleKey start = ConsoleKey.NumPad0;
 			var repos = LoadAvailableRepos();
 			foreach (var repo in repos) {
-				Console.WriteLine($"{start++} - {repo.Description}");
+				WriteMessage($"{start++} - {repo.Description}");
 			}
 
 			var selectedDic = Console.ReadKey(true).Key;
 			int index = selectedDic - ConsoleKey.NumPad0;
 			if (index < repos.Count && index >= 0) { 			
 				_wordRepository = repos[selectedDic - ConsoleKey.NumPad0];
-				Console.WriteLine($"Hai selezionato: {_wordRepository.Description}");
+				WriteMessage($"Hai selezionato: {_wordRepository.Description}");
 			}
 			else {
 				ManageSettings("Il valore selezionato è errato");
@@ -102,7 +105,7 @@ namespace Anagrams {
 			}
 
 			WriteMessage("");
-			WriteMessage("-- GAME MODE--", ConsoleColor.DarkRed);
+			WriteMessage("-- GAME MODE--", ConsoleColor.Red);
 			ConsoleKey starting = ConsoleKey.F1;
 			foreach (var game in _gameModes) {
 				WriteMessage($"{starting++} - {game.Description}");

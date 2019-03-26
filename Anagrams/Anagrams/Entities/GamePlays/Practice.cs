@@ -20,10 +20,11 @@ namespace Anagrams.Entities.GamePlays {
 		void Run() {
 			bool continua = true;
 			while (continua) {
-				_uiHandler.WriteMessage("- PRACTICE GAME -");
+				_uiHandler.ClearScreen();
+				_uiHandler.WriteMessage("- PRACTICE GAME -", ConsoleColor.Yellow);
 				_uiHandler.WriteMessage("Inserisci una parola di prova");
 				string myWord = _uiHandler.AskForString();
-				var anagrams = _wordRepository.GetAnagrams(myWord);
+				var anagrams = _wordRepository.GetAnagrams(myWord).Where(x => x != myWord);
 				foreach (var anag in anagrams) {
 					_uiHandler.WriteMessage(anag);
 				}

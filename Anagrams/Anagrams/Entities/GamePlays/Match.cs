@@ -22,7 +22,11 @@ namespace Anagrams.Entities.GamePlays {
 			bool continua = true;
 			Score = 0;
 			while (continua) {
-				_uiHandler.WriteMessage("- MATCH GAME -");
+				_uiHandler.ClearScreen();
+				_uiHandler.WriteMessage("- MATCH GAME -", ConsoleColor.Yellow);
+				_uiHandler.WriteMessage("");
+				_uiHandler.WriteMessage($"-current score: {Score}");
+				_uiHandler.WriteMessage("");
 				_uiHandler.WriteMessage("La parola da anagrammare è: ");
 				string randomWord = _wordRepository.GetRandomWord();
 				_uiHandler.WriteMessage(randomWord);
@@ -40,7 +44,7 @@ namespace Anagrams.Entities.GamePlays {
 				else {
 					_uiHandler.WriteMessage("Peccato! Risposta sbagliata.", ConsoleColor.Red);
 					_uiHandler.WriteMessage("Alcuni possibili anagrammi sono:");
-					foreach (var word in _wordRepository.CurrentAnagramPool) {
+					foreach (var word in _wordRepository.CurrentAnagramPool.Where(x => x != randomWord)) {
 						_uiHandler.WriteMessage(word);
 					}
 				}
