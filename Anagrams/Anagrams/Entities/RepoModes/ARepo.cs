@@ -31,22 +31,26 @@ namespace Anagrams.Entities.RepoModes {
 			}
 		}
 
-		public IGrouping<string, string> CurrentAnagramPool { get; private set; }		
+		IGrouping<string, string> _currentAnagramPool;
+		IEnumerable<IGrouping<string, string>> _anagramPools;
+		IEnumerable<IGrouping<string, string>> AnagramPools {
+			get {
+				if (_anagramPools == null) {
+					_anagramPools = Dictionary.GroupBy(x => String.Concat(x.OrderBy(c => c))).Where(g => g.Count() > 1);
+				}
+				return _anagramPools;
+			}
+		}
 
 		public abstract string Description { get; }
 		
 		public List<string> GetAnagrams(string word) {
-			return GetAnagrams(Dictionary, word);
+			return Dictionary.Where(x => x.IsAnagram(word)).Where(w => w != word).ToList();
 		}
 
-		private List<string> GetAnagrams(List<string> dictionary, string word) {
-			return dictionary.Where(x => x.IsAnagram(word)).ToList();
-		}
-
-		IGrouping<string, string> GetRandomAnagramPool(List<string> dictionary) {
-			var anagGroup = dictionary.GroupBy(x => String.Concat(x.OrderBy(c => c))).Where(g => g.Count() > 1);
-			CurrentAnagramPool = anagGroup.ElementAt(new Random().Next(0, anagGroup.Count()));
-			return CurrentAnagramPool;
+		IGrouping<string, string> GetRandomAnagramPool() {
+			_currentAnagramPool = AnagramPools.ElementAt(new Random().Next(0, AnagramPools.Count()));
+			return _currentAnagramPool;
 		}
 
 		string GetRandomWordFromPool(IGrouping<string, string> anagramPool) {
@@ -54,12 +58,18 @@ namespace Anagrams.Entities.RepoModes {
 		}
 
 		public string GetRandomWord() {
-			return GetRandomWordFromPool(GetRandomAnagramPool(Dictionary));
+			return GetRandomWordFromPool(GetRandomAnagramPool());
+		}
+
+		bool IsValidWord(string word) {
+			return Dictionary.Contains(word);
 		}
 
 		public bool IsAnagram(string word, string anagram) {
-			if (!Dictionary.Contains(anagram)) return false;
-			return word.IsAnagram(anagram);
+			if (IsValidWord(anagram))
+				return word.IsAnagram(anagram);
+
+			return false;
 		}
 
 		public abstract List<string> LoadDictionary();

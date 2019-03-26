@@ -5,14 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Anagrams.Entities.GamePlays {
-	class Match : IGamePlay {
-		public string Description => "Match";
-		IUIHandler _uiHandler = null;
-		IRepository _wordRepository;
+	class Match : AGamePlay {
+		public override string Description => "Match";
 
 		public int Score { get; private set; }
 
-		public void Run(IUIHandler handler, IRepository repo) {
+		public override void Run(IUIHandler handler, IRepository repo) {
 			_uiHandler = handler;
 			_wordRepository = repo;
 			Run();
@@ -34,7 +32,14 @@ namespace Anagrams.Entities.GamePlays {
 				///Start timer
 				DateTime time = DateTime.Now;
 				string answer =_uiHandler.AskForString();
-				bool correctAnswer = _wordRepository.IsAnagram(randomWord, answer);
+				bool correctAnswer = false;
+				if (answer.ToLower() == randomWord.ToLower()) {
+					_uiHandler.WriteMessage("Non è valido usare la stessa parola!", ConsoleColor.Red);
+					correctAnswer = false;
+				}
+				else {
+					correctAnswer = _wordRepository.IsAnagram(randomWord, answer);
+				}				
 				///Stop timer
 				var totalTime = DateTime.Now.Subtract(time);
 				_uiHandler.WriteMessage($"Ci hai impiegato {totalTime.ToString(@"%s\.fff")} s");				
@@ -44,7 +49,8 @@ namespace Anagrams.Entities.GamePlays {
 				else {
 					_uiHandler.WriteMessage("Peccato! Risposta sbagliata.", ConsoleColor.Red);
 					_uiHandler.WriteMessage("Alcuni possibili anagrammi sono:");
-					foreach (var word in _wordRepository.CurrentAnagramPool.Where(x => x != randomWord)) {
+					
+					foreach (var word in _wordRepository.GetAnagrams(randomWord)) {
 						_uiHandler.WriteMessage(word);
 					}
 				}
@@ -52,9 +58,8 @@ namespace Anagrams.Entities.GamePlays {
 				_uiHandler.WriteMessage($"Hai guadagnato {matchPoints} pt.");
 				_uiHandler.WriteMessage($"Per un totale di {Score+=matchPoints} pt.");
 
-				_uiHandler.WriteMessage("Vuoi continuare? (s/n)");
-				string continuare = _uiHandler.AskForString();
-				continua = (continuare == "s");
+
+				continua = Continue();
 			}
 		}
 

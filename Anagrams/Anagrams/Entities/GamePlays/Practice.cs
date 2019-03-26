@@ -5,13 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Anagrams.Entities.GamePlays {
-	class Practice : IGamePlay {
-		private IUIHandler _uiHandler;
-		private IRepository _wordRepository;
+	class Practice : AGamePlay {
 
-		public string Description => "Practice";
+		public override string Description => "Practice";
 		
-		public void Run(IUIHandler handler, IRepository repo) {
+		public override void Run(IUIHandler handler, IRepository repo) {
 			_uiHandler = handler;
 			_wordRepository = repo;
 			Run();
@@ -29,9 +27,7 @@ namespace Anagrams.Entities.GamePlays {
 					_uiHandler.WriteMessage(anag);
 				}
 
-				_uiHandler.WriteMessage("Vuoi continuare? (s/n)");
-				string continuare =_uiHandler.AskForString();
-				continua = (continuare == "s");
+				continua = Continue();
 			}
 		}
 	}

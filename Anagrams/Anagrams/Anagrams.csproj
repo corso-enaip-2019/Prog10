@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConsoleUI.cs" />
+    <Compile Include="Entities\GamePlays\AGamePlay.cs" />
     <Compile Include="Entities\GamePlays\Match.cs" />
     <Compile Include="Entities\GamePlays\Practice.cs" />
     <Compile Include="Entities\IGamePlay.cs" />
