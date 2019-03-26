@@ -19,7 +19,6 @@ namespace Anagrams.Entities.RepoModes {
 
 		public override string Description => "Carica da file";
 
-
 		public override List<string> LoadDictionary() {
 			try {
 				return File.ReadAllLines(_dictionaryPath).ToList();

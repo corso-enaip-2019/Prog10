@@ -7,20 +7,23 @@ using System.Threading.Tasks;
 namespace Anagrams.Entities.GamePlays {
 	class Practice : IGamePlay {
 		private IUIHandler _uiHandler;
+		private IRepository _wordRepository;
 
 		public string Description => "Practice";
-
-		public void RegisterUIHandler(IUIHandler handler) {
+		
+		public void Run(IUIHandler handler, IRepository repo) {
 			_uiHandler = handler;
+			_wordRepository = repo;
+			Run();
 		}
 
-		public void Run() {
+		void Run() {
 			bool continua = true;
 			while (continua) {
 				_uiHandler.WriteMessage("- PRACTICE GAME -");
 				_uiHandler.WriteMessage("Inserisci una parola di prova");
 				string myWord = _uiHandler.AskForString();
-				var anagrams = _uiHandler.WordRepository.GetAnagrams(myWord);
+				var anagrams = _wordRepository.GetAnagrams(myWord);
 				foreach (var anag in anagrams) {
 					_uiHandler.WriteMessage(anag);
 				}

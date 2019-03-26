@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace Anagrams.Entities {
 	public interface IGamePlay {
-
 		string Description { get; }
-		void Run();
-		void RegisterUIHandler(IUIHandler handler);
+		void Run(IUIHandler handler, IRepository repo);
 	}
 }

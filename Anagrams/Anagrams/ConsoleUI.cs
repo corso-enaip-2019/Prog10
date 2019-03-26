@@ -8,12 +8,18 @@ using System.Threading.Tasks;
 
 namespace Anagrams {
 	class ConsoleUI : IUIHandler {
-		public IRepository WordRepository { get; private set; }
+		IRepository _wordRepository;
+
 		public string AskForString() {
 			return Console.ReadLine();
 		}
 
-		public void WriteMessage(string message) {			
+		public void WriteMessage(string message) {
+			WriteMessage(message, ConsoleColor.White);
+		}
+
+		public void WriteMessage(string message, ConsoleColor color) {
+			Console.ForegroundColor = color;
 			Console.WriteLine(message);
 		}
 
@@ -31,14 +37,13 @@ namespace Anagrams {
 				switch (option) {
 					default:
 						if (option >= ConsoleKey.F1 && option <= ConsoleKey.F12) {
-							if (WordRepository is null) {
+							if (_wordRepository is null) {
 								ManageSettings();
 							}
 							int index = option - ConsoleKey.F1;
 							if (index < _gameModes.Count && index >= 0) {
 								IGamePlay game = _gameModes[index];
-								game.RegisterUIHandler(this);
-								game.Run();
+								game.Run(this, _wordRepository);
 							}	
 						}
 						else {
@@ -69,8 +74,8 @@ namespace Anagrams {
 			var selectedDic = Console.ReadKey(true).Key;
 			int index = selectedDic - ConsoleKey.NumPad0;
 			if (index < repos.Count && index >= 0) { 			
-				WordRepository = repos[selectedDic - ConsoleKey.NumPad0];
-				Console.WriteLine($"Hai selezionato: {WordRepository.Description}");
+				_wordRepository = repos[selectedDic - ConsoleKey.NumPad0];
+				Console.WriteLine($"Hai selezionato: {_wordRepository.Description}");
 			}
 			else {
 				Console.WriteLine("Il valore selezionato è errato");
@@ -79,8 +84,8 @@ namespace Anagrams {
 		}
 
 		private void ShowOptionsMenu(List<IGamePlay> _gameModes) {
-			if (WordRepository != null) {
-				Console.WriteLine($"Modalità corrente - {WordRepository.Description}");
+			if (_wordRepository != null) {
+				Console.WriteLine($"Modalità corrente - {_wordRepository.Description}");
 			}
 
 			Dictionary<ConsoleKey, string> _options = new Dictionary<ConsoleKey, string>();

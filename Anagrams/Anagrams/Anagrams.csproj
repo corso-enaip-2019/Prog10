@@ -46,7 +46,6 @@
     <Compile Include="ConsoleUI.cs" />
     <Compile Include="Entities\GamePlays\Match.cs" />
     <Compile Include="Entities\GamePlays\Practice.cs" />
-    <Compile Include="Entities\GamePlays\Versus.cs" />
     <Compile Include="Entities\IGamePlay.cs" />
     <Compile Include="Entities\IRepository.cs" />
     <Compile Include="Entities\IUIHandler.cs" />

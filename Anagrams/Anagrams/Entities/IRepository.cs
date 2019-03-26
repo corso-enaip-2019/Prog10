@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Anagrams.Entities {
 	public interface IRepository {
 		string Description { get; }
-
+		IGrouping<string, string> CurrentAnagramPool { get; }
 		List<string> LoadDictionary();
 		List<string> GetAnagrams(string word);
 		string GetRandomWord();

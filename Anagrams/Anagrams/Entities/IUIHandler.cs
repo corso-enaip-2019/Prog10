@@ -1,8 +1,10 @@
-﻿namespace Anagrams.Entities {
+﻿using System;
+
+namespace Anagrams.Entities {
 	public interface IUIHandler {
-		IRepository WordRepository { get; }
 		string AskForString();
 		void WriteMessage(string message);
+		void WriteMessage(string message, ConsoleColor color);
 		void Run();
 	}
 }
