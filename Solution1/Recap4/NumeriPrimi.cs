@@ -15,16 +15,30 @@ namespace Recap4
             _uInterface = uInterface ?? throw new ArgumentNullException(nameof(uInterface));
 
             int max = _uInterface.GetNumber("Quanti numeri primi vuoi? ");
+
+            _uInterface.WriteMessage($"I primi {max} numeri primi sono:");
+            int counter = 1;
+            foreach (var prime in GetPrimeNumbers(max))
+            {
+                Console.ForegroundColor = counter % 2 == 0 ? ConsoleColor.Gray : ConsoleColor.White;
+                _uInterface.WriteMessage($"{counter++}: {prime}");
+            }
+        }
+
+        private List<int> GetPrimeNumbers(int max)
+        {
             int primeCandidate = 0;
-            int primeCounter = 0;
-            while(primeCounter < max)
+            List<int> primeCounter = new List<int>();
+            while (primeCounter.Count < max)
             {
                 if (IsPrime(primeCandidate))
                 {
-                    _uInterface.WriteMessage($"{++primeCounter}: {primeCandidate}");
+                    primeCounter.Add(primeCandidate);
+                    
                 }
                 primeCandidate++;
             }
+            return primeCounter;
         }
 
         public bool IsPrime(int number)
