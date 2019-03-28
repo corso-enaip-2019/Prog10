@@ -15,14 +15,14 @@ namespace Anagrams.Entities.GamePlays {
 
 		protected bool Continue() {
 			_uiHandler.WriteMessage("Vuoi continuare? (s/n)");
-			string continuare = _uiHandler.AskForString();
+			var continuare = _uiHandler.AskForKey();
 			switch (continuare) {
 				default:
 					_uiHandler.WriteMessage("Scelta non valida", ConsoleColor.Red);
 					return Continue();
-				case "s":
+				case ConsoleKey.S:
 					return true;
-				case "n":
+				case ConsoleKey.N:
 					return false;
 			}
 		}

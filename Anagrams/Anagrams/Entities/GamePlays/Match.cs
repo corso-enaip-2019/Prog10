@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Anagrams.Entities.GamePlays {
@@ -26,6 +27,9 @@ namespace Anagrams.Entities.GamePlays {
 				_uiHandler.WriteMessage($"-current score: {Score}");
 				_uiHandler.WriteMessage("");
 				_uiHandler.WriteMessage("La parola da anagrammare è: ");
+
+				Thread.Sleep(2000);
+
 				string randomWord = _wordRepository.GetRandomWord();
 				_uiHandler.WriteMessage(randomWord);
 				_uiHandler.WriteMessage("Inserisci un anagramma:");
@@ -34,7 +38,7 @@ namespace Anagrams.Entities.GamePlays {
 				string answer =_uiHandler.AskForString();
 				bool correctAnswer = false;
 				if (answer.ToLower() == randomWord.ToLower()) {
-					_uiHandler.WriteMessage("Non è valido usare la stessa parola!", ConsoleColor.Red);
+					_uiHandler.WriteMessage("Hey!!! Non è valido usare la stessa parola!", ConsoleColor.Red);
 					correctAnswer = false;
 				}
 				else {

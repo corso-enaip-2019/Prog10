@@ -14,6 +14,10 @@ namespace Anagrams {
 			return Console.ReadLine();
 		}
 
+		public ConsoleKey AskForKey() {
+			return Console.ReadKey().Key;
+		}
+
 		public void WriteMessage(string message) {
 			WriteMessage(message, ConsoleColor.Gray);
 		}

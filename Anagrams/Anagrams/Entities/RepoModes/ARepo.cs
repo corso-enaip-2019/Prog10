@@ -32,11 +32,11 @@ namespace Anagrams.Entities.RepoModes {
 		}
 
 		IGrouping<string, string> _currentAnagramPool;
-		IEnumerable<IGrouping<string, string>> _anagramPools;
-		IEnumerable<IGrouping<string, string>> AnagramPools {
+		List<IGrouping<string, string>> _anagramPools;
+		List<IGrouping<string, string>> AnagramPools {
 			get {
 				if (_anagramPools == null) {
-					_anagramPools = Dictionary.GroupBy(x => String.Concat(x.OrderBy(c => c))).Where(g => g.Count() > 1);
+					_anagramPools = Dictionary.GroupBy(x => String.Concat(x.OrderBy(c => c))).Where(g => g.Count() > 1).ToList();
 				}
 				return _anagramPools;
 			}

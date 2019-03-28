@@ -7,10 +7,11 @@ using ConsoleApp1.Esercizio1.Entity;
 
 namespace ConsoleApp1 {
 	class Program {
-		static void Main(string[] args) {
+        static void Main(string[] args) {
 
-			//bool continua = true;
+			Console.WriteLine(0.1D + 0.2D == 0.3D);
 
+            //bool continua = true;
 			//while (continua) {
 
 			bool triangoloValido = false;
