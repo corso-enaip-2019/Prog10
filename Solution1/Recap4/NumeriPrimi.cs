@@ -16,9 +16,14 @@ namespace Recap4
 
             int max = _uInterface.GetNumber("Quanti numeri primi vuoi? ");
 
-            _uInterface.WriteMessage($"I primi {max} numeri primi sono:");
+            PrintPrimes(GetPrimeNumbers(max));
+        }
+
+        private void PrintPrimes(List<int> primes)
+        {
+            _uInterface.WriteMessage($"I primi {primes.Count} numeri primi sono:");
             int counter = 1;
-            foreach (var prime in GetPrimeNumbers(max))
+            foreach (var prime in primes)
             {
                 Console.ForegroundColor = counter % 2 == 0 ? ConsoleColor.Gray : ConsoleColor.White;
                 _uInterface.WriteMessage($"{counter++}: {prime}");
@@ -33,8 +38,7 @@ namespace Recap4
             {
                 if (IsPrime(primeCandidate))
                 {
-                    primeCounter.Add(primeCandidate);
-                    
+                    primeCounter.Add(primeCandidate);                    
                 }
                 primeCandidate++;
             }
