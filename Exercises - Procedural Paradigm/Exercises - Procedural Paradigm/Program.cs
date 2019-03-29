@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using PlugInSystem;
 using VatExercise;
+using System.Drawing;
 
 namespace Exercises___Procedural_Paradigm
 {
@@ -15,20 +16,22 @@ namespace Exercises___Procedural_Paradigm
     {
         static void Main(string[] args)
         {
-            //ConsoleGUI gui = new ConsoleGUI();
+            ConsoleGUI gui = new ConsoleGUI();
 
-            //PlugInLoader plugIn = new PlugInLoader();
-            //var exercises = plugIn.LoadAvailableExercises().OrderBy(x => x.Number);
+            PlugInLoader plugIn = new PlugInLoader();
+            var exercises = plugIn.LoadAvailableExercises().OrderBy(x => x.VersionNumber);
 
-            //foreach(var exercise in exercises)
-            //{
-            //    exercise.Run(gui);
-            //}
+            foreach (var exercise in exercises)
+            {
+                gui.WriteMessage($"##### {exercise.VersionNumber} - {exercise.Description} #####", Color.Yellow);
+                exercise.Run(gui);
+                Console.ReadKey();
+            }
 
-            VatExerciseMain vat = new VatExerciseMain();
-            vat.Run(null);
+            //VatExerciseMain vat = new VatExerciseMain();
+            //vat.Run(null);
 
-            Console.ReadKey();
+            //Console.ReadKey();
         }
     }
 }

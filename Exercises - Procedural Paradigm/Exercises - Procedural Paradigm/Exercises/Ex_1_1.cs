@@ -12,7 +12,7 @@ namespace Exercises___Procedural_Paradigm.Exercises
     {
         public override string Description => "Write the answer to all questions";
 
-        public override Version Number => new Version(1, 1);
+        public override Version VersionNumber => new Version(1, 1);
 
         public override void Run(IGUI guiHandler)
         {

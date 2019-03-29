@@ -23,7 +23,7 @@ namespace PlugInSystem
         {
             List<T> _types = new List<T>();
 
-            Assembly me = Assembly.GetExecutingAssembly();
+            Assembly me = Assembly.GetEntryAssembly();
             var list = me.GetTypes().Where(t => t != typeof(T) && typeof(T).IsAssignableFrom(t))
                 .ToList();
             foreach (var type in list)

@@ -24,7 +24,7 @@ namespace VatExercise
 
         public override string Description => "Calcolo dell'IVA";
 
-        public override Version Number => new Version(1, 0);
+        public override Version VersionNumber => new Version(1, 0);
 
         public override void Run(IGUI guiHandler)
         {

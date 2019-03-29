@@ -47,8 +47,7 @@ namespace Exercises___Procedural_Paradigm.GUI
             bool valid = false;
             do
             {
-                Console.Write(requestMessage);
-                valid = Int32.TryParse(Console.ReadLine(), out outValue);
+                valid = Int32.TryParse(AskForText(requestMessage), out outValue);
                 if (!valid || outValue < 0)
                 {
                     Console.WriteLine("Valore inserito non valido!");
@@ -63,13 +62,13 @@ namespace Exercises___Procedural_Paradigm.GUI
 
         public string AskForText(string requestMessage)
         {
-            Console.WriteLine(requestMessage);
+            WriteMessage(requestMessage, false);
             return Console.ReadLine();
         }
 
         public void WriteMessage(string message, bool newLine = true)
         {
-            WriteMessage(message, Color.Gray);
+            WriteMessage(message, Color.Gray, newLine);
         }
 
         public void WriteMessage(string message, Color color, bool newLine = true)

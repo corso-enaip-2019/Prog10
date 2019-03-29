@@ -9,7 +9,7 @@ namespace PlugInSystem
     public interface IExercise
     {
         string Description { get; }
-        Version Number { get; }
+        Version VersionNumber { get; }
         void Run(IGUI guiHandler);
     }
 }

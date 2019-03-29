@@ -13,13 +13,13 @@ namespace PlugInSystem
 
         public abstract string Description { get; }
 
-        public abstract Version Number { get; }
+        public abstract Version VersionNumber { get; }
 
         public abstract void Run(IGUI guiHandler);
         
         protected void WriteTitle()
         {
-            _guiHandler.WriteMessage($"#### Esercizio {Number.ToString(2)} ####");
+            _guiHandler.WriteMessage($"#### Esercizio {VersionNumber.ToString(2)} ####");
             _guiHandler.WriteMessage($"#### {Description} ####");
         }
     }

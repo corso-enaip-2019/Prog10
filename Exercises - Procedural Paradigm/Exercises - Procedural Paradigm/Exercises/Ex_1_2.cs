@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,14 +13,22 @@ namespace Exercises___Procedural_Paradigm.Exercises
     {
         public override string Description => "Is the number divisible by 42?";
 
-        public override Version Number => new Version(1, 2);
+        public override Version VersionNumber => new Version(1, 2);
 
         public override void Run(IGUI guiHandler)
         {
             _guiHandler = guiHandler ?? throw new ArgumentNullException(nameof(guiHandler));
 
-            int userValue = _guiHandler.AskForPositiveInt("Inserisci un numero positivo");
+            int userValue = _guiHandler.AskForPositiveInt("Inserisci un numero positivo: ");
 
+            if (userValue % 42 == 0)
+            {
+                _guiHandler.WriteMessage("Yeah!!! Il numero è divisibile per 42!", Color.Green);
+            }
+            else
+            {
+                _guiHandler.WriteMessage("Mi spiace, il tuo numero non è divisibile per 42!", Color.Red);
+            }
         }
     }
 }
