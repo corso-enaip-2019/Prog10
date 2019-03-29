@@ -9,7 +9,7 @@ namespace Recap4
     class UInterface
     {
 
-        public int GetNumber(string requestMessage)
+        public int GetPositiveInt(string requestMessage)
         {
             int outValue = 0;
             bool valid = false;

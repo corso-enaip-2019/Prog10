@@ -14,7 +14,7 @@ namespace Recap4
         {
             _uInterface = uInterface ?? throw new ArgumentNullException(nameof(uInterface));
 
-            int max = _uInterface.GetNumber("Quanti numeri primi vuoi? ");
+            int max = _uInterface.GetPositiveInt("Quanti numeri primi vuoi? ");
 
             PrintPrimes(GetPrimeNumbers(max));
         }

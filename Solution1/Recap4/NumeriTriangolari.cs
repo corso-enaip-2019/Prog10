@@ -26,8 +26,8 @@ namespace Recap4
 
             while (!rangeValid)
             {
-                minRange = _uInterface.GetNumber("Inserisci min range: ");
-                maxRange = _uInterface.GetNumber("Inserisci max range: ");
+                minRange = _uInterface.GetPositiveInt("Inserisci min range: ");
+                maxRange = _uInterface.GetPositiveInt("Inserisci max range: ");
 
                 rangeValid = maxRange >= minRange;
                 if (!rangeValid)
