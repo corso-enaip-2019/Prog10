@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{3853F437-FE06-4E76-9B88-AA14E71B8DA8}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Exercises___Procedural_Paradigm</RootNamespace>
+    <RootNamespace>Exercises_Procedural_Paradigm</RootNamespace>
     <AssemblyName>Exercises - Procedural Paradigm</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -56,9 +56,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entities\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\PlugInSystem\PlugInSystem.csproj">
       <Project>{9feb90f1-c179-4420-80ec-7a1eade551db}</Project>

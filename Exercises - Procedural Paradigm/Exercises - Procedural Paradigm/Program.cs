@@ -1,13 +1,7 @@
-﻿using Exercises___Procedural_Paradigm.Exercises;
-using Exercises___Procedural_Paradigm.GUI;
+﻿using Exercises___Procedural_Paradigm.GUI;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using PlugInSystem;
-using VatExercise;
 using System.Drawing;
 
 namespace Exercises___Procedural_Paradigm
