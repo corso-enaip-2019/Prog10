@@ -62,6 +62,10 @@
       <Project>{9feb90f1-c179-4420-80ec-7a1eade551db}</Project>
       <Name>PlugInSystem</Name>
     </ProjectReference>
+    <ProjectReference Include="..\StarWars\StarWars.csproj">
+      <Project>{d5ad91eb-8b0f-4ce4-a683-128903efb131}</Project>
+      <Name>StarWars</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VatExercise\VatExercise.csproj">
       <Project>{a1b61325-480b-4a0c-a6b8-1cc29de3d16d}</Project>
       <Name>VatExercise</Name>

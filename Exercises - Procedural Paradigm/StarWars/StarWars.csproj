@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A1B61325-480B-4A0C-A6B8-1CC29DE3D16D}</ProjectGuid>
+    <ProjectGuid>{D5AD91EB-8B0F-4CE4-A683-128903EFB131}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>VatExercise</RootNamespace>
-    <AssemblyName>VatExercise</AssemblyName>
+    <RootNamespace>StarWars</RootNamespace>
+    <AssemblyName>StarWars</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -33,7 +33,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,14 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\AVAT.cs" />
-    <Compile Include="Entities\Option.cs" />
-    <Compile Include="Entities\VAT_Normal.cs" />
-    <Compile Include="Entities\VAT_Simple.cs" />
+    <Compile Include="Enities\Human.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils.cs" />
-    <Compile Include="VatExerciseClasses.cs" />
-    <Compile Include="VatExerciseMain.cs" />
+    <Compile Include="StarWarsMain.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PlugInSystem\PlugInSystem.csproj">
@@ -57,6 +51,5 @@
       <Name>PlugInSystem</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

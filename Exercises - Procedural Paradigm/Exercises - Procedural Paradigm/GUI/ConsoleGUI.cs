@@ -37,6 +37,25 @@ namespace Exercises___Procedural_Paradigm.GUI
             return Console.ReadKey(intercept);
         }
 
+        public decimal AskForDecimal(string requestMessage)
+        {
+            decimal outValue = 0;
+            bool valid = false;
+            do
+            {
+                valid = Decimal.TryParse(AskForText(requestMessage), out outValue);
+                if (!valid || outValue < 0)
+                {
+                    Console.WriteLine("Valore inserito non valido!");
+                    requestMessage = "Inserire un valore valido: ";
+                    valid = false;
+                }
+            }
+            while (!valid);
+
+            return outValue;
+        }
+
         public int AskForPositiveInt(string requestMessage)
         {
             int outValue = 0;
@@ -62,7 +81,12 @@ namespace Exercises___Procedural_Paradigm.GUI
             return Console.ReadLine();
         }
 
-        public void WriteMessage(string message, bool newLine = true)
+        public void ClrScr()
+        {
+            Console.Clear();
+        }
+
+        public void WriteMessage(string message = null, bool newLine = true)
         {
             WriteMessage(message, Color.Gray, newLine);
         }

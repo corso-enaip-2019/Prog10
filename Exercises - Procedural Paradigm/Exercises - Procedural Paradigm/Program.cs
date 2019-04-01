@@ -12,18 +12,25 @@ namespace Exercises___Procedural_Paradigm
         {
             ConsoleGUI gui = new ConsoleGUI();
 
-            PlugInLoader plugIn = new PlugInLoader();
-            var exercises = plugIn.LoadAvailableExercises().OrderBy(x => x.VersionNumber);
+            //PlugInLoader plugIn = new PlugInLoader();
+            //var exercises = plugIn.LoadAvailableExercises().OrderBy(x => x.VersionNumber);
 
-            foreach (var exercise in exercises)
-            {
-                gui.WriteMessage($"##### {exercise.VersionNumber} - {exercise.Description} #####", Color.Yellow);
-                exercise.Run(gui);
-                Console.ReadKey();
-            }
+            //foreach (var exercise in exercises)
+            //{
+            //    gui.WriteMessage($"##### {exercise.VersionNumber} - {exercise.Description} #####", Color.Yellow);
+            //    exercise.Run(gui);
+            //    Console.ReadKey();
+            //}
+
 
             //VatExerciseMain vat = new VatExerciseMain();
             //vat.Run(null);
+
+            //VatExercise.VatExerciseClasses vatClasses = new VatExercise.VatExerciseClasses();
+            //vatClasses.Run(gui);
+
+            StarWars.StarWarsMain starWars = new StarWars.StarWarsMain();
+            starWars.Run(gui);
 
             //Console.ReadKey();
         }
