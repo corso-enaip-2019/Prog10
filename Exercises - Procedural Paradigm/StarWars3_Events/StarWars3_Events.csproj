@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3853F437-FE06-4E76-9B88-AA14E71B8DA8}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Exercises_Procedural_Paradigm</RootNamespace>
-    <AssemblyName>Exercises - Procedural Paradigm</AssemblyName>
+    <ProjectGuid>{FD2A54CC-95A8-4CDE-A6FC-D5B7F51F31C9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>StarWars3_Events</RootNamespace>
+    <AssemblyName>StarWars3_Events</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -35,7 +33,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,47 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Exercises\Ex_1_1.cs" />
-    <Compile Include="Exercises\Ex_5_2.cs" />
-    <Compile Include="Exercises\Ex_5_1.cs" />
-    <Compile Include="Exercises\Ex_4.cs" />
-    <Compile Include="Exercises\Ex_3_2.cs" />
-    <Compile Include="Exercises\Ex_3_1.cs" />
-    <Compile Include="Exercises\Ex_2.cs" />
-    <Compile Include="Exercises\Ex_1_2.cs" />
-    <Compile Include="GUI\ConsoleGUI.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Entities\Creatures.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StarWarsMain.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="exercises01.md" />
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <ProjectReference Include="..\Filters\Filters.csproj">
-      <Project>{95f982c0-a1e9-4ce3-884b-e5d1959ec74f}</Project>
-      <Name>Filters</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PlugInSystem\PlugInSystem.csproj">
       <Project>{9feb90f1-c179-4420-80ec-7a1eade551db}</Project>
       <Name>PlugInSystem</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\StarWars2_Delegates\StarWars2_Delegates.csproj">
-      <Project>{1a2c336c-843b-431d-8d72-7fae6fe4410f}</Project>
-      <Name>StarWars2_Delegates</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\StarWars3_Events\StarWars3_Events.csproj">
-      <Project>{fd2a54cc-95a8-4cde-a6fc-d5b7f51f31c9}</Project>
-      <Name>StarWars3_Events</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\StarWars\StarWars_Interfaces.csproj">
-      <Project>{d5ad91eb-8b0f-4ce4-a683-128903efb131}</Project>
-      <Name>StarWars_Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\VatExercise\VatExercise.csproj">
-      <Project>{a1b61325-480b-4a0c-a6b8-1cc29de3d16d}</Project>
-      <Name>VatExercise</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 
 namespace PlugInSystem
@@ -13,5 +14,6 @@ namespace PlugInSystem
         void WriteMessage(string message, Color color, bool newLine = true);
         bool AskForExit();
         void ClrScr();
+        void PrintList<T>(string listName, List<T> list);
     }
 }

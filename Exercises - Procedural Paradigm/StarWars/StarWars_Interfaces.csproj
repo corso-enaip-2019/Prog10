@@ -7,8 +7,8 @@
     <ProjectGuid>{D5AD91EB-8B0F-4CE4-A683-128903EFB131}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StarWars</RootNamespace>
-    <AssemblyName>StarWars</AssemblyName>
+    <RootNamespace>StarWars_Interfaces</RootNamespace>
+    <AssemblyName>StarWars_Interfaces</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enities\Human.cs" />
+    <Compile Include="Entities\Creatures.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StarWarsMain.cs" />
   </ItemGroup>

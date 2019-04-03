@@ -1,5 +1,6 @@
 ﻿using PlugInSystem;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 
 namespace Exercises___Procedural_Paradigm.GUI
@@ -119,6 +120,17 @@ namespace Exercises___Procedural_Paradigm.GUI
                 }
             }
             return ret;
+        }
+
+        public void PrintList<T>(string listName, List<T> list)
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine(listName);
+            Console.ForegroundColor = ConsoleColor.Gray;
+            foreach(var item in list)
+            {
+                Console.WriteLine(item.ToString());
+            }
         }
     }
 }

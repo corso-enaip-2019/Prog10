@@ -9,7 +9,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VatExercise", "VatExercise\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlugInSystem", "PlugInSystem\PlugInSystem.csproj", "{9FEB90F1-C179-4420-80EC-7A1EADE551DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarWars", "StarWars\StarWars.csproj", "{D5AD91EB-8B0F-4CE4-A683-128903EFB131}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarWars_Interfaces", "StarWars\StarWars_Interfaces.csproj", "{D5AD91EB-8B0F-4CE4-A683-128903EFB131}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarWars2_Delegates", "StarWars2_Delegates\StarWars2_Delegates.csproj", "{1A2C336C-843B-431D-8D72-7FAE6FE4410F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarWars3_Events", "StarWars3_Events\StarWars3_Events.csproj", "{FD2A54CC-95A8-4CDE-A6FC-D5B7F51F31C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Filters", "Filters\Filters.csproj", "{95F982C0-A1E9-4CE3-884B-E5D1959EC74F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +39,18 @@ Global
 		{D5AD91EB-8B0F-4CE4-A683-128903EFB131}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5AD91EB-8B0F-4CE4-A683-128903EFB131}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5AD91EB-8B0F-4CE4-A683-128903EFB131}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A2C336C-843B-431D-8D72-7FAE6FE4410F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A2C336C-843B-431D-8D72-7FAE6FE4410F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A2C336C-843B-431D-8D72-7FAE6FE4410F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A2C336C-843B-431D-8D72-7FAE6FE4410F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD2A54CC-95A8-4CDE-A6FC-D5B7F51F31C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD2A54CC-95A8-4CDE-A6FC-D5B7F51F31C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD2A54CC-95A8-4CDE-A6FC-D5B7F51F31C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD2A54CC-95A8-4CDE-A6FC-D5B7F51F31C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95F982C0-A1E9-4CE3-884B-E5D1959EC74F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95F982C0-A1E9-4CE3-884B-E5D1959EC74F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95F982C0-A1E9-4CE3-884B-E5D1959EC74F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95F982C0-A1E9-4CE3-884B-E5D1959EC74F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

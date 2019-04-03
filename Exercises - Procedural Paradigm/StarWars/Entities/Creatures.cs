@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StarWars.Enities
+namespace StarWars_Interfaces.Entities
 {
     abstract class Person
     {
