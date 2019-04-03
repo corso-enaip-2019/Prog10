@@ -129,7 +129,18 @@ namespace Exercises___Procedural_Paradigm.GUI
             Console.ForegroundColor = ConsoleColor.Gray;
             foreach(var item in list)
             {
-                Console.WriteLine(item.ToString());
+                if (item == null)
+                {
+                    Console.WriteLine("NULL");
+                }
+                else if (item.ToString().Length == 0)
+                {
+                    Console.WriteLine("EMPTY");
+                }
+                else
+                {
+                    Console.WriteLine(item.ToString());
+                }
             }
         }
     }

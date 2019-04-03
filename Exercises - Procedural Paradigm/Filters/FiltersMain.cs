@@ -11,7 +11,7 @@ namespace Filters
     {
         public override string Description => "Filters";
 
-        public override Version VersionNumber => new Version(1,0);
+        public override Version VersionNumber => new Version(1, 0);
 
         private List<string> MockList = new List<string>()
         {
@@ -25,6 +25,10 @@ namespace Filters
             "pappappero",
             "ammazza oh",
             "Anvedi questo",
+            "12.12",
+            "42,84",
+            "",
+            null
         };
 
         public override void Run(IGUI guiHandler)
@@ -55,7 +59,7 @@ namespace Filters
             List<string> outList = new List<string>();
 
             foreach (var text in inList)
-            {                
+            {
                 outList.Add(text.Revert());
             }
 
@@ -64,11 +68,16 @@ namespace Filters
 
         public static string Revert(this string strIn)
         {
+            if (strIn == null) return null;
+
             string strOut = "";
-            for (int i = strIn.Length - 1; i >= 0; i--)
+            if (strIn != null)
             {
-                strOut += strIn[i];
-            }
+                for (int i = strIn.Length - 1; i >= 0; i--)
+                {
+                    strOut += strIn[i];
+                }
+            }            
             return strOut;
         }
 
@@ -78,7 +87,10 @@ namespace Filters
 
             foreach (var item in inList)
             {
-                outList.Add(item.Length);
+                if (item != null)
+                {
+                    outList.Add(item.Length);
+                }
             }
 
             return outList;
@@ -93,9 +105,12 @@ namespace Filters
 
             foreach (var item in inList)
             {
-                if (item.Length < maxLenght)
+                if (item != null)
                 {
-                    outList.Add(item);
+                    if (item.Length < maxLenght)
+                    {
+                        outList.Add(item);
+                    }
                 }
             }
 
@@ -108,9 +123,12 @@ namespace Filters
 
             foreach (var item in inList)
             {
-                if (item.ToLower()[0] == startingLetter)
+                if (item != null && item.Length > 0)
                 {
-                    outList.Add(item);
+                    if (item.ToLower()[0] == startingLetter)
+                    {
+                        outList.Add(item);
+                    }
                 }
             }
 
@@ -123,9 +141,12 @@ namespace Filters
 
             foreach (var item in inList)
             {
-                if (int.TryParse(item, out int myInt))
+                if (item != null)
                 {
-                    outList.Add(item);
+                    if (int.TryParse(item, out int myInt))
+                    {
+                        outList.Add(item);
+                    }
                 }
             }
 
