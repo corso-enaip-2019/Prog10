@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace Exercises___Procedural_Paradigm.GUI
+namespace Exercises.GUI
 {
     class ConsoleGUI : IGUI
     {
@@ -122,18 +122,35 @@ namespace Exercises___Procedural_Paradigm.GUI
             return ret;
         }
 
-        public void PrintList<T>(string listName, List<T> list)
+        public void PrintList<T>(IEnumerable<T> list, string intestazione = null, bool alternateRow = false)
         {
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine(listName);
+            if (intestazione != null)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine(intestazione);
+            }
             Console.ForegroundColor = ConsoleColor.Gray;
+            int index = 0;
             foreach(var item in list)
             {
+                if (alternateRow)
+                {
+                    if (index % 2 == 0)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Gray;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.White;
+                    }
+                    index++;
+                }
+                
                 if (item == null)
                 {
                     Console.WriteLine("NULL");
                 }
-                else if (item.ToString().Length == 0)
+                else if (string.IsNullOrWhiteSpace(item.ToString()))
                 {
                     Console.WriteLine("EMPTY");
                 }
@@ -142,6 +159,7 @@ namespace Exercises___Procedural_Paradigm.GUI
                     Console.WriteLine(item.ToString());
                 }
             }
+            Console.ForegroundColor = ConsoleColor.Gray;
         }
     }
 }

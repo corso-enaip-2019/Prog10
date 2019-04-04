@@ -1,7 +1,7 @@
 ﻿using System;
 using PlugInSystem;
 
-namespace Exercises___Procedural_Paradigm.Exercises
+namespace Exercises.Procedural
 {
     class Ex_3_1 : AExercise
     {

@@ -2,7 +2,7 @@
 using System.Drawing;
 using PlugInSystem;
 
-namespace Exercises___Procedural_Paradigm.Exercises
+namespace Exercises.Procedural
 {
     class Ex_1_2 : AExercise
     {

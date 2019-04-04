@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.539
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercises - Procedural Paradigm", "Exercises - Procedural Paradigm\Exercises - Procedural Paradigm.csproj", "{3853F437-FE06-4E76-9B88-AA14E71B8DA8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercises_", "Exercises - Procedural Paradigm\Exercises_.csproj", "{3853F437-FE06-4E76-9B88-AA14E71B8DA8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VatExercise", "VatExercise\VatExercise.csproj", "{A1B61325-480B-4A0C-A6B8-1CC29DE3D16D}"
 EndProject

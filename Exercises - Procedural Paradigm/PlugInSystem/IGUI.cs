@@ -14,6 +14,6 @@ namespace PlugInSystem
         void WriteMessage(string message, Color color, bool newLine = true);
         bool AskForExit();
         void ClrScr();
-        void PrintList<T>(string listName, List<T> list);
+        void PrintList<T>(IEnumerable<T> list, string intestazione = null, bool alternateRow = false);
     }
 }
