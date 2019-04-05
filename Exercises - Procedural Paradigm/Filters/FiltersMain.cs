@@ -48,7 +48,7 @@ namespace Filters
             guiHandler.PrintList(MockList.IsConvertibleInInt(), "Elements convertible in int");
             guiHandler.WriteMessage();
             #endregion Extensions example
-
+            
             #region Interface example
             guiHandler.WriteMessage("WITH INTERFACE");
             guiHandler.PrintList(MockList.Filter(new ShortStringFilter(3)), "Elements shorter than 3");
@@ -68,8 +68,7 @@ namespace Filters
             guiHandler.WriteMessage("WITH DELEGATES");
             guiHandler.PrintList(MockList.FilterBy(x => x != null && x.Length < 3), "Elements shorter than 3");
             guiHandler.WriteMessage();
-            guiHandler.PrintList(MockList.FilterBy(x =>x != null && (x.StartsWith("A") || x.StartsWith("a")))
-                , "Elements beginning with a");
+            guiHandler.PrintList(MockList.FilterBy(x =>x != null && (x.StartsWith("A") || x.StartsWith("a"))), "Elements beginning with a");
             guiHandler.WriteMessage();
             guiHandler.PrintList(MockList.FilterBy(x => x != null && int.TryParse(x, out int _)), "Elements convertible in int");
             guiHandler.WriteMessage();
@@ -307,7 +306,7 @@ namespace Filters
             foreach(var item in input)
             {
                 if (filter(item))
-                output.Add(item);
+                    output.Add(item);
             }
 
             return output;
