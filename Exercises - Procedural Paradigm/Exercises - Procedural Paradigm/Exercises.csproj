@@ -46,6 +46,14 @@
   <ItemGroup>
     <Compile Include="OOP\EX_06.cs" />
     <Compile Include="GUI\ConsoleGUI.cs" />
+    <Compile Include="Procedural\Ex_1_1.cs" />
+    <Compile Include="Procedural\Ex_1_2.cs" />
+    <Compile Include="Procedural\Ex_2.cs" />
+    <Compile Include="Procedural\Ex_3_1.cs" />
+    <Compile Include="Procedural\Ex_3_2.cs" />
+    <Compile Include="Procedural\Ex_4.cs" />
+    <Compile Include="Procedural\Ex_5_1.cs" />
+    <Compile Include="Procedural\Ex_5_2.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

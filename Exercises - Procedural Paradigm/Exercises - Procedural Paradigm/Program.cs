@@ -32,6 +32,7 @@ namespace Exercises
             //starWars.Run(gui);
 
             //StarWars2_Delegates.StarWarsMain starWarsDelegates = new StarWars2_Delegates.StarWarsMain();
+
             //starWarsDelegates.Run(gui);
 
             //StarWars3_Events.StarWarsMain starWarsDelegates = new StarWars3_Events.StarWarsMain();
