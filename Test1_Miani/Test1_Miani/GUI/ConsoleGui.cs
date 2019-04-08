@@ -7,6 +7,11 @@ namespace Test1_Miani.GUI
 {
     class ConsoleGui : IGui
     {
+        static ConsoleGui()
+        {
+            Console.OutputEncoding = Encoding.Default;
+        }
+
         public bool AskForExit()
         {
             bool exit = false;

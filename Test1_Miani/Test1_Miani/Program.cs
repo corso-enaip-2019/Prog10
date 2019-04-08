@@ -37,20 +37,15 @@ namespace Test1_Miani
             switch (loanType)
             {
                 case LoanType.Fixed:
-                    calculator = new FixedLoanCalculator()
-                    {
-                        InitialAmount = initialAmount,
-                        IsClient = isClient,
-                    };
+                    calculator = new FixedLoanCalculator();
                     break;
                 case LoanType.Variable:
-                    calculator = new VariableLoanCalculator()
-                    {
-                        InitialAmount = initialAmount,
-                        IsClient = isClient,
-                    };
+                    calculator = new VariableLoanCalculator();
                     break;
             }
+
+            calculator.InitialAmount = initialAmount;
+            calculator.IsClient = isClient;
 
             return calculator;
         }

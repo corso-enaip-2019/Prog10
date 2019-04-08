@@ -7,42 +7,32 @@ namespace Test1_Miani.LoanCalculators
     class VariableLoanCalculator : ALoanCalculator
     {
         List<decimal> _inflationRates = initInflationRates();
-        decimal _rate = 1.75m;
+        decimal _rate = 0.0175m;
 
         public override string LoanType => "Variabile";
 
-        public override void MakeCalculation()
+        protected override decimal CalculateAnnualStake(int year)
         {
-            FinalAmount = InitialAmount;
-            for(int i = 0; i < years; i++)
-            {
-                decimal annualRate = _rate + _inflationRates[i];
-                //decimal annualStake = FinalAmount * annualRate / 100;
+            decimal annualRate = _rate + _inflationRates[year];
+            decimal annualStake = FinalAmount * annualRate;
 
-                FinalAmount += AnnualStake(annualRate);
-                //Console.WriteLine(FinalAmount.ToString("C"));
-            }
-
-            if (IsClient)
-            {
-                ApplyDiscount();
-            }
+            return annualStake;
         }
 
         static List<decimal> initInflationRates()
         {
             List<decimal> _inflationRates = new List<decimal>()
             {
-                2m,
-                2.5m,
-                1.75m,
-                3m,
-                0.5m,
-                1.3m,
-                3.5m,
-                0.75m,
-                1.8m,
-                2.2m,
+                0.02m,
+                0.025m,
+                0.0175m,
+                0.03m,
+                0.005m,
+                0.013m,
+                0.035m,
+                0.0075m,
+                0.018m,
+                0.022m,
             };
 
             return _inflationRates;

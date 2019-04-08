@@ -6,23 +6,13 @@ namespace Test1_Miani.LoanCalculators
 {
     class FixedLoanCalculator : ALoanCalculator
     {
-        private decimal _rate = 3.5m;
+        private decimal _rate = 0.035m;
 
         public override string LoanType => "Fisso"; 
-
-        public override void MakeCalculation()
+        
+        protected override decimal CalculateAnnualStake(int year)
         {
-            FinalAmount = InitialAmount;
-            for (int i = 0; i < years; i++)
-            {
-                FinalAmount += AnnualStake(_rate);
-                //Console.WriteLine(FinalAmount.ToString("C"));
-            }
-
-            if (IsClient)
-            {
-                ApplyDiscount();
-            }
+            return FinalAmount * _rate;
         }
     }
 }

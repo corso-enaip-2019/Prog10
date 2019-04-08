@@ -19,9 +19,11 @@ namespace Test1_Miani
         {
             gui.WriteMessage($"Il cliente ha richiesto {loanType.InitialAmount.ToString("C")} con tasso {loanType.LoanType}");
             loanType.MakeCalculation();
-            decimal stake = loanType.FinalAmount - loanType.InitialAmount;
+            decimal stake = Math.Round(loanType.FinalAmount - loanType.InitialAmount, 2);
 
-            gui.WriteMessage($"Il totale finale del prestito sarà di {loanType.FinalAmount.ToString("C")} ovvero un interesse di {stake.ToString("C")}");
+            decimal finalPrintValue = Math.Round(loanType.FinalAmount, 2);
+
+            gui.WriteMessage($"Il totale finale del prestito sarà di {finalPrintValue.ToString("C")} ovvero un interesse di {stake.ToString("C")}");
             //if (loanType.IsClient)
             //{
                 

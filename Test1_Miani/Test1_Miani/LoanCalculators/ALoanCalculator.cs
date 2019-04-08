@@ -7,7 +7,7 @@ namespace Test1_Miani.LoanCalculators
     abstract class ALoanCalculator: ILoanCalculator
     {
         protected const int years = 10;
-        public const decimal Discount = 20m;
+        public const decimal Discount = 0.20m;
 
         public abstract string LoanType { get; }
 
@@ -17,21 +17,28 @@ namespace Test1_Miani.LoanCalculators
 
         public bool IsClient { get; set; }
 
-        public abstract void MakeCalculation();
+        public void MakeCalculation()
+        {
+            FinalAmount = InitialAmount;
+            for (int i = 0; i < years; i++)
+            {
+                FinalAmount += CalculateAnnualStake(i);
+            }
+
+            if (IsClient)
+            {
+                ApplyDiscount();
+            }
+        }
 
         protected void ApplyDiscount()
         {
             decimal stake = FinalAmount - InitialAmount;
-            decimal discountedStake = stake - (stake * Discount / 100);
+            decimal discountedStake = stake - (stake * Discount);
 
             FinalAmount = InitialAmount + discountedStake;
         }
 
-        protected decimal AnnualStake(decimal rate)
-        {
-            decimal annualStake = FinalAmount * rate / 100;
-
-            return annualStake;
-        }
+        protected abstract decimal CalculateAnnualStake(int year);
     }
 }
