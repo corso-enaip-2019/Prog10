@@ -64,13 +64,25 @@ namespace DesignPattern_01.Entities
         
         public override decimal CalculatePay()
         {
-            return _weeklyWorkedHours.Sum() * Salary;
+            return _weeklyWorkedHours.Sum(h => h.WorkedHours) * Salary;
         }
 
-        List<int> _weeklyWorkedHours = new List<int>();
+        List<WorkedHour> _weeklyWorkedHours = new List<WorkedHour>();
         public void Add_DaylyWorkedHours(int hours)
         {
-            _weeklyWorkedHours.Add(hours);
+            _weeklyWorkedHours.Add(new WorkedHour(hours));
+        }
+
+        class WorkedHour
+        {
+            public WorkedHour(int workedHours)
+            {
+                WorkedHours = workedHours;
+                WorkDay = DateTime.Now;
+            }
+
+            public int WorkedHours { get; }
+            public DateTime WorkDay { get; }
         }
     }
 
