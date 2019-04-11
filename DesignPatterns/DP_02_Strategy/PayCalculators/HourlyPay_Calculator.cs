@@ -19,10 +19,10 @@ namespace DP_02_Strategy.PayCalculators
                 throw new ArgumentNullException(nameof(employee));
 
             if (endDate < startDate)
-                throw new ArgumentException($"{nameof(endDate)} < {nameof(startDate)}: {endDate} < {startDate}");
+                throw new ArgumentException($"{nameof(endDate)}({endDate}) < {nameof(startDate)}({startDate})");
 
             var weekDays = employee.WorkedHours
-                .Where(wd => startDate < wd.Date && wd.Date < endDate)
+                .Where(wd => startDate <= wd.Date && wd.Date < endDate)
                 .Sum(h => h.Hours);
 
             return weekDays * employee.HourlyRate;

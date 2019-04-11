@@ -13,7 +13,7 @@ namespace DP_02_Strategy.PayCalculators
                 throw new ArgumentNullException(nameof(employee));
 
             if (endDate < startDate)
-                throw new ArgumentException($"{nameof(endDate)} < {nameof(startDate)}: {endDate} < {startDate}");
+                throw new ArgumentException($"{nameof(endDate)}({endDate}) < {nameof(startDate)}({startDate})");
 
             return employee.FixedSalary;
         }

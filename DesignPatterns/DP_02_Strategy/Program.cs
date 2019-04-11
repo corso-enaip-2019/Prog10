@@ -1,6 +1,6 @@
 ﻿using DP_02_Strategy.Employees;
 using DP_02_Strategy.PayCalculators;
-using DP_02_Strategy.PayDayCalculators;
+using DP_02_Strategy.PayDaySchedulers;
 using System;
 using System.Collections.Generic;
 
@@ -21,16 +21,20 @@ namespace DP_02_Strategy
             //        salva record in una lista di record
             List<PayCheckRecord> payCheckRecords = new List<PayCheckRecord>();
 
-            var endDay = new DateTime(2019, 8, 31);
-            var startDay = new DateTime(2019, 8, 22);
+            var date = new DateTime(2019, 8, 31);
+            //var endDay = new DateTime(2019, 8, 31);
+            //var startDay = new DateTime(2019, 8, 22);
 
             foreach (var e in employees)
             {
-                if (e.DayCalculator.IsPayDay(endDay))
+                if (e.IsPayDay(date))
                 {
-                    var pay = e.CalculatePay(startDay, endDay);
-                    var record = new PayCheckRecord(e.ID, DateTime.Today, pay);
-                    payCheckRecords.Add(record);
+                    var pay = e.CalculatePay(date);
+                    if (pay != 0m)
+                    {
+                        var record = new PayCheckRecord(e.ID, DateTime.Today, pay);
+                        payCheckRecords.Add(record);
+                    }
                 }
             }
 
@@ -41,7 +45,7 @@ namespace DP_02_Strategy
         {
             List<Employee> employees = new List<Employee>();
 
-            var fs = new Employee(new MonthlyPay_Calculator(), new FixedSalary_Calculator())
+            var fs = new Employee(new MonthlyPay_Scheduler(), new FixedSalary_Calculator())
             {
                 ID = 1,
                 Name = "Tiziano",
@@ -53,7 +57,7 @@ namespace DP_02_Strategy
             fs.Add_Sale(new SoldCommision(new DateTime(2019, 8, 14), 87));
             employees.Add(fs);
 
-            var hp = new Employee(new WeeklyPay_Calculator(), new HourlyPay_Calculator())
+            var hp = new Employee(new WeeklyPay_Scheduler(), new HourlyPay_Calculator())
             {
                 ID = 2,
                 Name = "Jessica",
@@ -66,16 +70,16 @@ namespace DP_02_Strategy
 
             employees.Add(hp);
 
-            var cp = new Employee(new DaylyPay_Calculator(), new CommisionPay_Calculator())
+            var cp = new Employee(new DaylyPay_Scheduler(), new CommisionPay_Calculator())
             {
-                ID = 2,
-                Name = "Jessica",
-                CommisionPercentage = 0.02m,
+                ID = 3,
+                Name = "Ken",
+                CommisionPercentage = 2m,
             };
-            cp.Add_Sale(new SoldCommision(new DateTime(2019, 8, 31), 40));
-            cp.Add_Sale(new SoldCommision(new DateTime(2019, 8, 30), 68));
-            cp.Add_Sale(new SoldCommision(new DateTime(2019, 8, 29), 59));
-            cp.Add_Sale(new SoldCommision(new DateTime(2019, 8, 14), 87));
+            cp.Add_Sale(new SoldCommision(new DateTime(2019, 8, 31), 4000));
+            cp.Add_Sale(new SoldCommision(new DateTime(2019, 8, 30), 6800));
+            cp.Add_Sale(new SoldCommision(new DateTime(2019, 8, 29), 5900));
+            cp.Add_Sale(new SoldCommision(new DateTime(2019, 8, 14), 870));
             employees.Add(cp);
 
             return employees;

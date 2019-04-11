@@ -1,4 +1,4 @@
-﻿using DP_02_Strategy.PayDayCalculators;
+﻿using DP_02_Strategy.PayDaySchedulers;
 using DP_02_Strategy.PayCalculators;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ namespace DP_02_Strategy.Employees
 {
     class Employee
     {
-        public readonly IPayDayCalculator DayCalculator;
+        public readonly IPayDayScheduler DayScheduler;
         public readonly IPayCalculator PayCalculator;
 
         public int ID { get; set; }
@@ -32,9 +32,9 @@ namespace DP_02_Strategy.Employees
         }
         private readonly List<SoldCommision> _SoldCommissions;
 
-        public Employee(IPayDayCalculator dayCalculator, IPayCalculator payCalculator)
+        public Employee(IPayDayScheduler dayScheduler, IPayCalculator payCalculator)
         {
-            DayCalculator = dayCalculator;
+            DayScheduler = dayScheduler;
             PayCalculator = payCalculator;
 
             _WorkedHours = new List<WorkedTime>();
@@ -56,9 +56,15 @@ namespace DP_02_Strategy.Employees
             _SoldCommissions.Add(sale);
         }
 
-        public decimal CalculatePay(DateTime startDate, DateTime endDate)
+        public bool IsPayDay(DateTime date)
         {
-            return PayCalculator.CalculatePay(this, startDate, endDate);
+            return DayScheduler.IsPayDay(date);
+        }
+
+        public decimal CalculatePay(DateTime date)
+        {
+            var (Start, End) = DayScheduler.GetPayInterval(date);
+            return PayCalculator.CalculatePay(this, Start, End);
         }
     }
 }
