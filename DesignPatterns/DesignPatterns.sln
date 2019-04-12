@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DP_02_Strategy", "DP_02_Str
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DP_03_Template", "DP_03\DP_03_Template.csproj", "{FCCC5B2E-1351-4A9F-BFAA-61E3DB4C6BCF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DP_04_Singleton_Repository", "DP_04_Singleton\DP_04_Singleton_Repository.csproj", "{30F0318F-5AF0-4710-9273-62463FCD9089}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DP_04_Singleton_Repository", "DP_04_Singleton\DP_04_Singleton_Repository.csproj", "{30F0318F-5AF0-4710-9273-62463FCD9089}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DP_05_Multiton", "DP_05_Multiton\DP_05_Multiton.csproj", "{5252AB55-AC03-4CF9-98E7-C5895B73EF01}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DP_05_Multiton", "DP_05_Multiton\DP_05_Multiton.csproj", "{5252AB55-AC03-4CF9-98E7-C5895B73EF01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DP_06_FactoryMethod", "DP_06_FactoryMethod\DP_06_FactoryMethod.csproj", "{24873E02-C274-46C3-948F-64D9A356DBC5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{5252AB55-AC03-4CF9-98E7-C5895B73EF01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5252AB55-AC03-4CF9-98E7-C5895B73EF01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5252AB55-AC03-4CF9-98E7-C5895B73EF01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24873E02-C274-46C3-948F-64D9A356DBC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24873E02-C274-46C3-948F-64D9A356DBC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24873E02-C274-46C3-948F-64D9A356DBC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24873E02-C274-46C3-948F-64D9A356DBC5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
