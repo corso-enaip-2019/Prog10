@@ -11,8 +11,8 @@ namespace DP_05_Multiton
             string jsonFile = @"c:\myJson.json";
             string xmlFile = @"c:\myXML.xml";
 
-            XMLSaver.Instance.Save(persons, xmlFile);
-            JSonSaver.Instance.Save(persons, jsonFile);
+            Saver.Json.Save(persons, xmlFile);
+            Saver.XML.Save(persons, jsonFile);
         }
 
         static List<Person> CreatePersons()
@@ -29,7 +29,7 @@ namespace DP_05_Multiton
         }
     }
 
-    class Person
+    public class Person
     {
         public string FullName { get; set; }
         //public DateTime BirthDay { get; set; }
@@ -37,24 +37,21 @@ namespace DP_05_Multiton
         public decimal Salary { get; set; }
     }
 
-    interface ISaver
+    public interface ISaver
     {
         void Save(List<Person> persons, string fileName);
     }
 
-    abstract class Saver : ISaver
+    public abstract class Saver : ISaver
     {
-        //public static ISaver GetSaver<T>() where T : Saver
-        //{
-        //    try
-        //    {
-        //        return Activator.CreateInstance<T>();
-        //    }
-        //    catch (Exception)
-        //    {
-        //        throw new NotImplementedException("Saver not implemented yet!");
-        //    }
-        //}
+        public static JSonSaver Json { get; }
+        public static XMLSaver XML { get; }
+
+        static Saver()
+        {
+            Json = new JSonSaver();
+            XML = new XMLSaver();
+        }        
 
         public void Save(List<Person> persons, string fileName)
         {
@@ -63,21 +60,18 @@ namespace DP_05_Multiton
                 message += SerializeObject(p) + Environment.NewLine;
             }
 
-            System.IO.File.WriteAllText(fileName, message);
+            var fileNameExt = GetFileNameExtension(fileName);
+
+            System.IO.File.WriteAllText(fileNameExt, message);
         }
 
+        internal abstract string GetFileNameExtension(string fileName);
         protected abstract string SerializeObject(Person person);
     }
 
-    class JSonSaver : Saver
+    public class JSonSaver : Saver
     {
-        static JSonSaver()
-        {
-            Instance = new JSonSaver();
-        }
-        public static JSonSaver Instance { get; }
-
-        private JSonSaver() { }
+        internal JSonSaver() { }
 
         protected override string SerializeObject(Person person)
         {
@@ -92,17 +86,16 @@ namespace DP_05_Multiton
 
             return message;
         }
+
+        internal override string GetFileNameExtension(string fileName)
+        {
+            return fileName + ".json";
+        }
     }
 
-    class XMLSaver : Saver
+    public class XMLSaver : Saver
     {
-        static XMLSaver()
-        {
-            Instance = new XMLSaver();
-        }
-        public static XMLSaver Instance { get; }
-
-        private XMLSaver() { }
+        internal XMLSaver() { }
 
         protected override string SerializeObject(Person person)
         {
@@ -123,6 +116,11 @@ namespace DP_05_Multiton
             message += $"</{nameof(Person)}>";
 
             return message;
+        }
+
+        internal override string GetFileNameExtension(string fileName)
+        {
+            return fileName + ".xml";
         }
     }
 }
