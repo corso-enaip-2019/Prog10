@@ -23,15 +23,15 @@ namespace Tests_03_Cup2
             Assert.AreEqual(0, cup.FillLevel);
         }
 
-        [TestMethod]
-        public void Fill_an_empty_cup()
-        {
-            var cup = new Cup();
-            cup.Fill();
+        //[TestMethod]
+        //public void Fill_an_empty_cup()
+        //{
+        //    var cup = new Cup();
+        //    cup.Fill();
 
-            Assert.IsTrue(cup.IsFull);
-            Assert.AreEqual(10, cup.FillLevel);
-        }
+        //    Assert.IsTrue(cup.IsFull);
+        //    Assert.AreEqual(10, cup.FillLevel);
+        //}
 
         [TestMethod]
         public void A_cup_entirely_drank_is_empty()
@@ -44,17 +44,17 @@ namespace Tests_03_Cup2
             Assert.AreEqual(0, cup.FillLevel);
         }
 
-        [TestMethod]
-        public void A_cup_partially_drunk__consecutive_times()
-        {
-            var cup = new Cup();
-            cup.Fill();
-            cup.Drink(5);
-            cup.Drink(2);
+        //[TestMethod]
+        //public void A_cup_partially_drunk__consecutive_times()
+        //{
+        //    var cup = new Cup();
+        //    cup.Fill();
+        //    cup.Drink(5);
+        //    cup.Drink(2);
 
-            Assert.IsFalse(cup.IsFull);
-            Assert.AreEqual(3, cup.FillLevel);
-        }
+        //    Assert.IsFalse(cup.IsFull);
+        //    Assert.AreEqual(3, cup.FillLevel);
+        //}
 
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException))]
@@ -97,25 +97,25 @@ namespace Tests_03_Cup2
             Assert.AreEqual(10, cup.FillLevel);
         }
 
-        [TestMethod]
-        public void Fill_and_drink_many_times()
-        {
-            var cup = new Cup();
+        //[TestMethod]
+        //public void Fill_and_drink_many_times()
+        //{
+        //    var cup = new Cup();
 
-            var drinkings = new[] {
-                new[]{1,2 },
-                new[]{9 },
-                new[]{10 },
-                new[]{1, 1, 1, 1, 1, 2, 1, 1, 1 },
-            };
+        //    var drinkings = new[] {
+        //        new[]{1,2 },
+        //        new[]{9 },
+        //        new[]{10 },
+        //        new[]{1, 1, 1, 1, 1, 2, 1, 1, 1 },
+        //    };
 
-            foreach (var drinking in drinkings) {
-                cup.Fill();
-                foreach(var drink in drinking) {
-                    cup.Drink(drink);
+        //    foreach (var drinking in drinkings) {
+        //        cup.Fill();
+        //        foreach(var drink in drinking) {
+        //            cup.Drink(drink);
 
-                }
-            }
-        }
+        //        }
+        //    }
+        //}
     }
 }
