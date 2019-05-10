@@ -1,0 +1,47 @@
+﻿<Window x:Class="EntityFramework_WPF.EmployeeDetail"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EntityFramework_WPF"
+        mc:Ignorable="d"
+        Title="Employee Detail" Width="300"   
+        WindowStartupLocation="CenterScreen"
+        FontSize="16"
+        SizeToContent="Height">
+    <Grid>
+        <StackPanel Name="DataPanel" Orientation="Vertical" 
+                    Margin="10">
+            <Label Content="Name:" />
+            <TextBox Name="NameTextBox" 
+                     Padding="5"
+                     Margin="0,0,0,10"/>
+            
+            <Label Content="Productivity:" />
+            <TextBox Name="ProductivityTextBox" 
+                     Padding="5" 
+                     Margin="0,0,0,10" />
+            
+            <Label Content="Total Bonus:" />
+            <TextBox Name="TotalBonusTextBox"  
+                     Padding="5"
+                     Margin="0,0,0,10" />
+
+            <StackPanel Name="ButtonPanel" Orientation="Horizontal" 
+                        HorizontalAlignment="Center">
+                <Button Name="UndoButton"
+                        Content="Undo"
+                        Click="UndoButton_Click"
+                        Margin="5"
+                        Padding=" 10, 5"
+                        Width="75"/>
+                <Button Name="OkButton" 
+                        Content="OK"
+                        Margin="5"
+                        Padding=" 10, 5"
+                        Click="OkButton_Click" 
+                        Width="75"/>
+            </StackPanel>            
+        </StackPanel>        
+    </Grid>
+</Window>
